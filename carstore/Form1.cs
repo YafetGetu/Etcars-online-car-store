@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
+using carstore;
 
 namespace carstore
 {
@@ -221,6 +222,12 @@ namespace carstore
                     btnOrder.BackColor = Color.Transparent;
                 };
 
+                btnOrder.Click += (s, e) =>
+                {
+                    order orderForm = new order();  // Use the login form from your carstore namespace
+                    orderForm.ShowDialog();         // Show it as a modal dialog
+                };
+
                 // Add to panel
                 panel1.Controls.Add(btnOrder);
 
@@ -265,6 +272,13 @@ namespace carstore
                     btnLoginSignup.BackColor = Color.Transparent;
                 };
 
+                btnLoginSignup.Click += (s, e) =>
+                {
+                    login loginForm = new login();  // Use the login form from your carstore namespace
+                    loginForm.ShowDialog();         // Show it as a modal dialog
+                };
+
+
                 // Add to panel
                 panel1.Controls.Add(btnLoginSignup);
 
@@ -306,6 +320,15 @@ namespace carstore
                 {
                     btnAbout.BackColor = Color.Transparent;
                 };
+                btnAbout.Click += (s, args) =>
+                {
+                    // Create and show the About form
+                    about aboutForm = new about();
+                    aboutForm.ShowDialog(); // Show as modal dialog
+                                            // OR use Show() for non-modal:
+                                            // aboutForm.Show();
+                };
+
 
                 panel1.Controls.Add(btnAbout);
 
