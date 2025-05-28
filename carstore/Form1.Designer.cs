@@ -43,6 +43,7 @@ namespace carstore
             panel10 = new Panel();
             panel11 = new Panel();
             panel12 = new Panel();
+            panel13 = new Panel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -164,12 +165,22 @@ namespace carstore
             panel12.TabIndex = 9;
             panel12.Paint += panel12_Paint;
             // 
+            // panel13
+            // 
+            panel13.BackColor = Color.Transparent;
+            panel13.Location = new Point(806, 877);
+            panel13.Name = "panel13";
+            panel13.Size = new Size(302, 60);
+            panel13.TabIndex = 3;
+            panel13.Paint += panel13_Paint_1;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
             AutoValidate = AutoValidate.EnableAllowFocusChange;
             ClientSize = new Size(1920, 1055);
+            Controls.Add(panel13);
             Controls.Add(panel12);
             Controls.Add(panel11);
             Controls.Add(panel10);
@@ -210,5 +221,6 @@ namespace carstore
         private Panel panel10;
         private Panel panel11;
         private Panel panel12;
+        private Panel panel13;
     }
 }

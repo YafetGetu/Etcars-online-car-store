@@ -6,9 +6,11 @@ namespace carstore
 {
     public partial class order : Form
     {
-        // Custom colors and fonts
-        private readonly Color primaryColor = Color.FromArgb(0, 122, 204); // Blue accent
-        private readonly Color secondaryColor = Color.FromArgb(240, 240, 240); // Light gray
+        // Custom colors and fonts - updated for dark theme
+        private readonly Color primaryColor = Color.FromArgb(0, 120, 215); // Blue accent
+        private readonly Color secondaryColor = Color.FromArgb(50, 50, 80); // Darker blue-gray
+        private readonly Color textColor = Color.White; // White text for visibility
+        private readonly Color lightTextColor = Color.LightGray; // For less important text
         private readonly Font titleFont = new Font("Segoe UI", 18, FontStyle.Bold);
         private readonly Font labelFont = new Font("Segoe UI", 10, FontStyle.Regular);
         private readonly Font buttonFont = new Font("Segoe UI", 10, FontStyle.Bold);
@@ -17,33 +19,32 @@ namespace carstore
         {
             InitializeComponent();
             InitializeCustomComponents();
-            //this.Icon = SystemIcons.Car;
         }
 
         private void InitializeCustomComponents()
         {
-            // Form setup
+            // Form setup with dark background
             this.Text = "Luxury Car Order Form";
             this.Size = new Size(600, 650);
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.BackColor = Color.White;
+            this.BackColor = Color.FromArgb(0, 40, 85); // Dark blue background
 
             // Main panel setup
             panel1.Dock = DockStyle.Fill;
-            panel1.BackColor = Color.White;
+            panel1.BackColor = Color.FromArgb(0, 40, 85); // Match form background
             panel1.Padding = new Padding(20);
             panel1.BorderStyle = BorderStyle.FixedSingle;
 
-            // Title label
+            // Title label (white text)
             Label titleLabel = new Label();
             titleLabel.Text = "ORDER YOUR DREAM CAR";
             titleLabel.Font = titleFont;
-            titleLabel.ForeColor = primaryColor;
+            titleLabel.ForeColor = textColor; // White text
             titleLabel.AutoSize = true;
             titleLabel.Location = new Point(120, 20);
             panel1.Controls.Add(titleLabel);
 
-            // Horizontal line under title
+            // Horizontal line under title (light blue)
             Panel titleLine = new Panel();
             titleLine.BackColor = primaryColor;
             titleLine.Size = new Size(450, 2);
@@ -53,7 +54,7 @@ namespace carstore
             // Model selection
             CreateLabel("Car Model:", 50, 80);
             ComboBox modelComboBox = CreateComboBox(200, 80);
-            modelComboBox.Items.AddRange(new string[] { "Toyota Hilux", "Land Cruiser", "Ferrari", "Lamborghini", "Tesla Model 5" , "Porche 911" ,"Range Rover" ,"BMW M5" });
+            modelComboBox.Items.AddRange(new string[] { "Toyota Hilux", "Land Cruiser", "Ferrari", "Lamborghini", "Tesla Model 5", "Porche 911", "Range Rover", "BMW M5" });
 
             // Color selection
             CreateLabel("Exterior Color:", 50, 130);
@@ -78,8 +79,9 @@ namespace carstore
             // Additional features
             Label featuresLabel = CreateLabel("Additional Features:", 50, 330);
             featuresLabel.Font = new Font(labelFont, FontStyle.Bold);
+            featuresLabel.ForeColor = textColor; // White text
 
-            // Feature checkboxes with stylish appearance
+            // Feature checkboxes with white text
             CheckBox leatherSeatsCheck = CreateStyledCheckBox("Nappa Leather Seats (+$50,500 ETB", 200, 330);
             CheckBox sunroofCheck = CreateStyledCheckBox("Panoramic Sunroof (+$20,800ETB)", 200, 360);
             CheckBox navigationCheck = CreateStyledCheckBox("Premium Navigation (+$14,200ETB)", 200, 390);
@@ -91,10 +93,12 @@ namespace carstore
             nameTextBox.Location = new Point(200, 460);
             nameTextBox.Size = new Size(250, 25);
             nameTextBox.Font = labelFont;
+            nameTextBox.ForeColor = Color.Black; // Keep black text for input
+            nameTextBox.BackColor = Color.White; // White background for contrast
             nameTextBox.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(nameTextBox);
 
-            // Order button with gradient background
+            // Order button with accent color
             Button orderButton = new Button();
             orderButton.Text = "CONFIRM ORDER";
             orderButton.Location = new Point(200, 510);
@@ -110,7 +114,7 @@ namespace carstore
             orderButton.MouseEnter += (sender, e) => orderButton.BackColor = Color.FromArgb(0, 96, 160);
             orderButton.MouseLeave += (sender, e) => orderButton.BackColor = primaryColor;
 
-            orderButton.Click += (sender, e) => 
+            orderButton.Click += (sender, e) =>
             {
                 if (string.IsNullOrWhiteSpace(nameTextBox.Text))
                 {
@@ -151,7 +155,7 @@ namespace carstore
             Label label = new Label();
             label.Text = text;
             label.Font = labelFont;
-            label.ForeColor = Color.DimGray;
+            label.ForeColor = textColor; // White text
             label.Location = new Point(x, y);
             label.AutoSize = true;
             panel1.Controls.Add(label);
@@ -166,7 +170,8 @@ namespace carstore
             comboBox.Font = labelFont;
             comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox.FlatStyle = FlatStyle.Flat;
-            comboBox.BackColor = secondaryColor;
+            comboBox.BackColor = Color.White; // White background for contrast
+            comboBox.ForeColor = Color.Black; // Black text for readability
             panel1.Controls.Add(comboBox);
             return comboBox;
         }
@@ -177,7 +182,7 @@ namespace carstore
             checkBox.Text = text;
             checkBox.Location = new Point(x, y);
             checkBox.Font = labelFont;
-            checkBox.ForeColor = Color.DimGray;
+            checkBox.ForeColor = textColor; // White text
             checkBox.AutoSize = true;
             checkBox.FlatStyle = FlatStyle.Flat;
             panel1.Controls.Add(checkBox);
@@ -186,22 +191,23 @@ namespace carstore
 
         private void ShowError(string message)
         {
-            MessageBox.Show(message, "Order Information Needed", 
-                          MessageBoxButtons.OK, 
+            MessageBox.Show(message, "Order Information Needed",
+                          MessageBoxButtons.OK,
                           MessageBoxIcon.Exclamation);
         }
 
         private void ShowConfirmation(string message, string title)
         {
-            MessageBox.Show(message, title, 
-                          MessageBoxButtons.OK, 
+            MessageBox.Show(message, title,
+                          MessageBoxButtons.OK,
                           MessageBoxIcon.Information);
+            this.Close();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            // Optional: Add custom border or other painting
-            ControlPaint.DrawBorder(e.Graphics, panel1.ClientRectangle, 
+            // Custom border in accent color
+            ControlPaint.DrawBorder(e.Graphics, panel1.ClientRectangle,
                                   primaryColor, 1, ButtonBorderStyle.Solid,
                                   primaryColor, 1, ButtonBorderStyle.Solid,
                                   primaryColor, 1, ButtonBorderStyle.Solid,

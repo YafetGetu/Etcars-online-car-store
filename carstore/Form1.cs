@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Drawing.Imaging;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using carstore;
 
@@ -369,6 +370,15 @@ namespace carstore
                     btnSettings.BackColor = Color.Transparent;
                 };
 
+                btnSettings.Click += (s, args) =>
+                {
+                    // Create and show the Settings form
+                    setting settingsForm = new setting();
+                    settingsForm.ShowDialog(); // Show as a modal dialog
+                                               // OR use: settingsForm.Show(); // for non-modal window
+                };
+
+
                 panel1.Controls.Add(btnSettings);
 
 
@@ -410,8 +420,6 @@ namespace carstore
                 };
 
                 panel1.Controls.Add(btnContact);
-
-
 
 
 
@@ -555,8 +563,6 @@ namespace carstore
                 panel2.Controls.Add(modelItem);
             }
         }
-
-
 
 
 
@@ -1254,8 +1260,6 @@ namespace carstore
 
         // Modify your existing click handlers to update the info panel
         // For example, in your Toyota Corolla click handler:
-        
-
 
 
         private void panel11_Paint(object sender, PaintEventArgs e)
@@ -1412,5 +1416,81 @@ namespace carstore
         {
 
         }
+
+        private void panel13_Paint_1(object sender, PaintEventArgs e)
+        {
+            // Prevent duplicate button
+            if (panel13.Controls.Find("btnBuyPayment", false).Length == 0)
+            {
+                Button btnBuyPayment = new Button();
+                btnBuyPayment.Name = "btnBuyPayment";
+                btnBuyPayment.Text = "PROCEED TO PAYMENT";
+                btnBuyPayment.TextAlign = ContentAlignment.MiddleCenter;
+                btnBuyPayment.FlatStyle = FlatStyle.Flat;
+
+                // Add black border
+                btnBuyPayment.FlatAppearance.BorderSize = 2;
+                btnBuyPayment.FlatAppearance.BorderColor = Color.Black;
+
+                // Dark green color scheme
+                btnBuyPayment.BackColor = Color.FromArgb(0, 50, 0); // Dark green background
+                btnBuyPayment.ForeColor = Color.White;
+                btnBuyPayment.Font = new Font("Segoe UI Semibold", 12, FontStyle.Bold);
+
+                // Size and position with better spacing
+                btnBuyPayment.Size = new Size(panel13.Width - 20, 48);
+                btnBuyPayment.Location = new Point(10, 10);
+                btnBuyPayment.Margin = new Padding(10);
+
+                // Hover effects with smooth transition colors
+                btnBuyPayment.MouseEnter += (s, args) =>
+                {
+                    btnBuyPayment.BackColor = Color.FromArgb(0, 70, 0); // Slightly lighter green on hover
+                    btnBuyPayment.Cursor = Cursors.Hand;
+                };
+                btnBuyPayment.MouseLeave += (s, args) =>
+                {
+                    btnBuyPayment.BackColor = Color.FromArgb(0, 50, 0); // Original dark green
+                };
+
+                // Click effect
+                btnBuyPayment.MouseDown += (s, args) =>
+                {
+                    btnBuyPayment.BackColor = Color.FromArgb(0, 30, 0); // Darker green when pressed
+                };
+                btnBuyPayment.MouseUp += (s, args) =>
+                {
+                    btnBuyPayment.BackColor = Color.FromArgb(0, 70, 0); // Return to hover color
+                };
+                
+                // Add icon with proper alignment
+                
+                string buyIconPath = Application.StartupPath + @"\asset\icon\pay.png";
+                if (File.Exists(buyIconPath))
+                {
+                    using (Image originalBuyIcon = Image.FromFile(buyIconPath))
+                    {
+                        Image resizedBuyIcon = new Bitmap(originalBuyIcon, new Size(24, 24));
+                        btnBuyPayment.Image = resizedBuyIcon;
+                        btnBuyPayment.ImageAlign = ContentAlignment.MiddleRight;
+                        btnBuyPayment.TextImageRelation = TextImageRelation.TextBeforeImage;
+                        btnBuyPayment.Padding = new Padding(0, 0, 15, 0);
+                    }
+                }
+
+                // On click → open payment page
+                btnBuyPayment.Click += (s, args) =>
+                {
+                    payment payForm = new payment();
+                    payForm.StartPosition = FormStartPosition.CenterScreen;
+                    payForm.ShowDialog();
+                };
+
+                panel13.Controls.Add(btnBuyPayment);
+            }
+        }
+
+
+
     }
 }

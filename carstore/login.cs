@@ -43,7 +43,7 @@ namespace carstore
             this.Text = "Car Store - User Authentication";
             this.Size = new Size(1000, 800); // Set a professional form size
             this.MinimumSize = new Size(500, 600); // Prevent too much shrinking
-            this.BackColor = Color.FromArgb(240, 248, 255); // AliceBlue background for a clean look
+            this.BackColor = Color.FromArgb(0, 40, 85); // A soft dark navy blue
             this.FormBorderStyle = FormBorderStyle.FixedSingle; // Prevent resizing for consistent layout
             this.MaximizeBox = true; // Disable maximize button
             this.StartPosition = FormStartPosition.CenterScreen; // Center the form on screen
@@ -51,7 +51,7 @@ namespace carstore
             // --- Panel 1 (Registration Panel) Styling ---
             panel1.Size = new Size(600, 550); // Size for the registration panel
             // Position below the toggle button, centered horizontally
-            panel1.Location = new Point((this.ClientSize.Width - panel1.Width) / 2, 80);
+            panel1.Location = new Point((this.ClientSize.Width - panel1.Width) / 2-8, 80);
             panel1.BackColor = Color.White; // White background for the panel
             panel1.BorderStyle = BorderStyle.FixedSingle; // Add a border
             panel1.Padding = new Padding(20); // Inner padding for controls
@@ -189,6 +189,7 @@ namespace carstore
             pnlLogin.Size = new Size(600, 550); // Increased height to accommodate the new button
                                                 // Position centered, slightly lower than register panel for visual separation
             pnlLogin.Location = new Point((this.ClientSize.Width - panel1.Width) / 2, 80);
+
             pnlLogin.BackColor = Color.White;
             pnlLogin.BorderStyle = BorderStyle.FixedSingle;
             pnlLogin.Padding = new Padding(20);
@@ -412,6 +413,8 @@ namespace carstore
             radioButton1.Checked = false;
             radioButton2.Checked = false;
             radioButton3.Checked = false;
+            this.Close();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -453,11 +456,10 @@ namespace carstore
             // Dummy login logic:
             // In a real application, you would query your database to verify credentials.
             // For demonstration, let's use a hardcoded username and password.
-            if (loginName == "demo" && loginPassword == "password123")
+            if (loginName == "admin" && loginPassword == "123")
             {
                 MessageBox.Show("Login Successful! Welcome to Car Store.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // Here, you would typically hide the login form and show the main application form.
-                // Example: this.Hide(); new MainForm().Show();
+                this.Close();
             }
             else
             {
