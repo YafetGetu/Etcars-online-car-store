@@ -28,12 +28,12 @@ The **Car Store Desktop App** is a simple and user-friendly C# Windows Forms app
 
 - CarStore/
 - ├── Forms/
-- │   ├── MainForm.cs
-- │   ├── OrderForm.cs
-- │   └── CarListForm.cs
-- ├── Models/
-- │   ├── Car.cs
-- │   └── Order.cs
+- │   ├── login.cs
+- │   ├── Order.cs
+- │   └── payment.cs
+- │   └── about.cs
+- │   └── contact.cs
+- │   └── setting.cs
 - ├── Program.cs
 - └── README.md
 
