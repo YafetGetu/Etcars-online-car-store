@@ -1,38 +1,30 @@
-Car Store Desktop App
+# 🚗 Car Store Desktop App
 
-The Car Store Desktop App is a simple and user-friendly C# Windows Forms application designed to sell cars and manage customer orders.
-🛠 Features
+The **Car Store Desktop App** is a simple and user-friendly C# Windows Forms application designed to sell cars and manage customer orders.
 
-    🏷️ View Cars for Sale – Browse a list of available cars with details like model, price, and image.
+## 🛠 Features
 
-    🛒 Make an Order – Customers can select a car and place an order directly through the app.
+- 🏷️ View Cars for Sale – Browse a list of available cars with details like model, price, and image.
+- 🛒 Make an Order – Customers can select a car and place an order directly through the app.
+- 📋 Order Management – The app stores customer orders for review and processing.
+- 🎨 Modern UI – Clean and professional interface with intuitive navigation.
 
-    📋 Order Management – The app stores customer orders for review and processing.
+## 💻 Technologies Used
 
-    🎨 Modern UI – Clean and professional interface with intuitive navigation.
+- C# (.NET Framework)
+- Windows Forms
+- Visual Studio
 
-💻 Technologies Used
+## 📦 How to Run
 
-    C# (.NET Framework)
+1. Clone or download the project.
+2. Open the solution (.sln) file in Visual Studio.
+3. Build the solution.
+4. Run the application (press F5 or click **Start**).
 
-    Windows Forms
+## 📸 Screenshots
 
-    Visual Studio
-
-📦 How to Run
-
-    Clone or download the project.
-
-    Open the solution (.sln) file in Visual Studio.
-
-    Build the solution.
-
-    Run the application (F5 or click Start).
-
-📸 Screenshots
-
-Include screenshots of the main form, car list, and order form if available.
-📁 Project Structure (Example)
+## 📁 Project Structure (Example)
 
 CarStore/
 ├── Forms/
@@ -40,18 +32,17 @@ CarStore/
 │   ├── OrderForm.cs
 │   └── CarListForm.cs
 ├── Models/
-│   └── Car.cs
+│   ├── Car.cs
 │   └── Order.cs
 ├── Program.cs
 └── README.md
 
-📌 Notes
+## 📌 Notes
 
-    This app is for demo or small business purposes.
+- This app is for demo or small business purposes.
+- Data is stored in MySql database
 
-    Data is stored in memory or using simple file/database storage depending on your setup.
-
-🧑‍💻 Author
+## 🧑‍💻 Author
 
 Built with ❤️ using C# and Windows Forms.
-Feel free to modify and improve based on your needs.
+
