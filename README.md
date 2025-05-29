@@ -26,16 +26,16 @@ The **Car Store Desktop App** is a simple and user-friendly C# Windows Forms app
 
 ## 📁 Project Structure (Example)
 
-CarStore/
-├── Forms/
-│   ├── MainForm.cs
-│   ├── OrderForm.cs
-│   └── CarListForm.cs
-├── Models/
-│   ├── Car.cs
-│   └── Order.cs
-├── Program.cs
-└── README.md
+- CarStore/
+- ├── Forms/
+- │   ├── MainForm.cs
+- │   ├── OrderForm.cs
+- │   └── CarListForm.cs
+- ├── Models/
+- │   ├── Car.cs
+- │   └── Order.cs
+- ├── Program.cs
+- └── README.md
 
 ## 📌 Notes
 
