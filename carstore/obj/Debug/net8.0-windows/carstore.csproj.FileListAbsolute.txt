@@ -20,3 +20,6 @@ E:\tutorial\c sharp\carstore\carstore\obj\Debug\net8.0-windows\carstore.sourceli
 E:\tutorial\c sharp\carstore\carstore\obj\Debug\net8.0-windows\carstore.about.resources
 E:\tutorial\c sharp\carstore\carstore\obj\Debug\net8.0-windows\carstore.order.resources
 E:\tutorial\c sharp\carstore\carstore\obj\Debug\net8.0-windows\carstore.setting.resources
+E:\tutorial\c sharp\carstore\carstore\obj\Debug\net8.0-windows\carstore.privacy.resources
+E:\tutorial\c sharp\carstore\carstore\obj\Debug\net8.0-windows\carstore.profile.resources
+E:\tutorial\c sharp\carstore\carstore\obj\Debug\net8.0-windows\carstore.Properties.Resources.resources

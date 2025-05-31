@@ -98,23 +98,23 @@ namespace carstore
 
 
                 // Create Model button
-                Button btnModel = new Button();
-                btnModel.Name = "btnModel";
-                btnModel.Text = "  Model";
-                btnModel.TextAlign = ContentAlignment.MiddleLeft;
-                btnModel.ImageAlign = ContentAlignment.MiddleLeft;
-                btnModel.TextImageRelation = TextImageRelation.ImageBeforeText;
-                btnModel.FlatStyle = FlatStyle.Flat;
-                btnModel.FlatAppearance.BorderSize = 0;
-                btnModel.BackColor = Color.Transparent;
-                btnModel.ForeColor = Color.White;
-                btnModel.Font = new Font("Segoe UI", 13, FontStyle.Bold);
+                Button btnProfile = new Button();
+                btnProfile.Name = "btnProfile";
+                btnProfile.Text = "  Profile";
+                btnProfile.TextAlign = ContentAlignment.MiddleLeft;
+                btnProfile.ImageAlign = ContentAlignment.MiddleLeft;
+                btnProfile.TextImageRelation = TextImageRelation.ImageBeforeText;
+                btnProfile.FlatStyle = FlatStyle.Flat;
+                btnProfile.FlatAppearance.BorderSize = 0;
+                btnProfile.BackColor = Color.Transparent;
+                btnProfile.ForeColor = Color.White;
+                btnProfile.Font = new Font("Segoe UI", 13, FontStyle.Bold);
 
                 // Size and positioning
-                btnModel.Size = new Size(panel1.Width, 50);   // Full width
-                btnModel.Location = new Point(0, 170);         // Flush left
-                btnModel.Margin = new Padding(10);
-                btnModel.Padding = new Padding(10, 0, 0, 0);  // Space between icon and text
+                btnProfile.Size = new Size(panel1.Width, 50);   // Full width
+                btnProfile.Location = new Point(0, 170);         // Flush left
+                btnProfile.Margin = new Padding(10);
+                btnProfile.Padding = new Padding(10, 0, 0, 0);  // Space between icon and text
 
                 // Load and resize icon
                 string iconPath = Application.StartupPath + @"\asset\icon\model.png";
@@ -122,22 +122,30 @@ namespace carstore
                 {
                     Image originalIcon = Image.FromFile(iconPath);
                     Image resizedIcon = new Bitmap(originalIcon, new Size(35, 35));
-                    btnModel.Image = resizedIcon;
+                    btnProfile.Image = resizedIcon;
                 }
 
                 // Hover effect
-                btnModel.MouseEnter += (s, args) =>
+                btnProfile.MouseEnter += (s, args) =>
                 {
-                    btnModel.BackColor = Color.FromArgb(100, 65, 65, 100);  // Hover color
+                    btnProfile.BackColor = Color.FromArgb(100, 65, 65, 100);  // Hover color
                 };
 
-                btnModel.MouseLeave += (s, args) =>
+                btnProfile.MouseLeave += (s, args) =>
                 {
-                    btnModel.BackColor = Color.Transparent;
+                    btnProfile.BackColor = Color.Transparent;
+                };
+
+                btnProfile.Click += (s, args) =>
+                {
+                    // Create and show the About form
+                    profile profileForm = new profile();
+                    profileForm.ShowDialog(); // Show as profile dialog
+                                           
                 };
 
                 // Add to panel
-                panel1.Controls.Add(btnModel);
+                panel1.Controls.Add(btnProfile);
 
 
 
@@ -178,6 +186,12 @@ namespace carstore
                 btnBuy.MouseLeave += (s, args) =>
                 {
                     btnBuy.BackColor = Color.Transparent;
+                };
+                btnBuy.Click += (s, args) =>
+                {
+                    payment payForm = new payment();
+                    payForm.StartPosition = FormStartPosition.CenterScreen;
+                    payForm.ShowDialog();
                 };
 
                 // Add to panel
@@ -417,6 +431,10 @@ namespace carstore
                 btnContact.MouseLeave += (s, args) =>
                 {
                     btnContact.BackColor = Color.Transparent;
+                };
+                btnContact.Click += (s, e) =>
+                {
+                    MessageBox.Show("Please contact us support@carstore.com ", "Contact");
                 };
 
                 panel1.Controls.Add(btnContact);

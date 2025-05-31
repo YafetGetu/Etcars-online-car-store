@@ -52,10 +52,12 @@ namespace carstore
                 FlatStyle = FlatStyle.Flat
             };
             btnEditProfile.FlatAppearance.BorderSize = 0;
-            btnEditProfile.Click += (s, e) =>
+
+            btnEditProfile.Click += (s, args) =>
             {
-                MessageBox.Show("Open profile edit form.", "Info");
-                // TODO: Open profile edit form
+                profile profileForm = new profile();
+                profileForm.ShowDialog(); // Show as profile dialog
+
             };
 
             // Privacy Policy with white text
@@ -78,9 +80,12 @@ namespace carstore
                 FlatStyle = FlatStyle.Flat
             };
             btnPrivacy.FlatAppearance.BorderSize = 0;
+            
             btnPrivacy.Click += (s, e) =>
             {
-                MessageBox.Show("Show privacy policy content here.", "Privacy Policy");
+                // Create and show the privacy form
+                privacy privacyForm = new privacy();
+                privacyForm.ShowDialog(); // Show as a modal dialog
             };
 
             // Feedback & Support with white text
@@ -174,7 +179,7 @@ namespace carstore
             // App Version with light gray text
             Label lblVersion = new Label()
             {
-                Text = $"Version: {Application.ProductVersion}",
+                Text = $"Et Cars Version: {Application.ProductVersion}",
                 Location = new Point(20, 420),
                 AutoSize = true,
                 Font = new Font("Segoe UI", 9),
@@ -200,6 +205,11 @@ namespace carstore
             this.Controls.Add(btnLogout);
 
             this.Controls.Add(lblVersion);
+        }
+
+        private void setting_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

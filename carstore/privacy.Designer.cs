@@ -1,6 +1,6 @@
 ﻿namespace carstore
 {
-    partial class setting
+    partial class privacy
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            panel1 = new Panel();
             SuspendLayout();
             // 
-            // setting
+            // panel1
+            // 
+            panel1.Location = new Point(12, 6);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1080, 708);
+            panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
+            // 
+            // privacy
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1179, 689);
-            Name = "setting";
-            Text = "setting";
-            Load += setting_Load;
+            ClientSize = new Size(1104, 710);
+            Controls.Add(panel1);
+            Name = "privacy";
+            Text = "privacy";
+            Load += privacy_Load;
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel panel1;
     }
 }
