@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using carstore; // Add this line to use the DatabaseConnection class
 
 namespace carstore
 {
     public partial class login : Form
     {
-        
+
+        // ... existing code for panel and controls declarations ...
         // Panel to hold all login-related controls (dynamically created)
         private Panel pnlLogin;
 
@@ -16,6 +18,7 @@ namespace carstore
         private Label labelLoginPassword;
         private TextBox textBoxLoginPassword;
         private Button buttonPerformLogin; // The button for actual login action
+        // ... existing code ...
 
         public login()
         {
@@ -51,7 +54,7 @@ namespace carstore
             // --- Panel 1 (Registration Panel) Styling ---
             panel1.Size = new Size(600, 550); // Size for the registration panel
             // Position below the toggle button, centered horizontally
-            panel1.Location = new Point((this.ClientSize.Width - panel1.Width) / 2-8, 80);
+            panel1.Location = new Point((this.ClientSize.Width - panel1.Width) / 2 - 8, 80);
             panel1.BackColor = Color.White; // White background for the panel
             panel1.BorderStyle = BorderStyle.FixedSingle; // Add a border
             panel1.Padding = new Padding(20); // Inner padding for controls
@@ -182,7 +185,7 @@ namespace carstore
             groupBox1.Controls.Add(radioButton3);
         }
 
-        
+
         private void SetupLoginPanel()
         {
             pnlLogin = new Panel();
@@ -276,7 +279,8 @@ namespace carstore
             };
             pnlLogin.Controls.Add(buttonSwitchToRegister);
         }
-       
+        // ... existing event handlers ...
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             // Event for Full Name textbox.
@@ -387,34 +391,32 @@ namespace carstore
                 return;
             }
 
-            // In a real application, you would perform:
-            // 1. More robust validation (e.g., email format, phone number format, password strength)
-            // 2. Hash the password before storing it.
-            // 3. Save the user data to a database.
-            // 4. Handle potential errors (e.g., email already exists).
+            // Use the DatabaseConnection to register the user
+            bool registrationSuccess = DatabaseConnection.RegisterUser(fullName, email, password, phoneNumber, gender);
 
-            MessageBox.Show(
-                $"Registration Successful!\n\n" +
-                $"Full Name: {fullName}\n" +
-                $"Phone: {phoneNumber}\n" +
-                $"Email: {email}\n" +
-                $"Password (for demo): {password}\n" + // In production, never show raw password
-                $"Gender: {gender}",
-                "Registration Details",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
+            if (registrationSuccess)
+            {
+                MessageBox.Show("Registration Successful! You can now login.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // Optionally clear the registration fields after successful registration
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            textBox4.Clear();
-            radioButton1.Checked = false;
-            radioButton2.Checked = false;
-            radioButton3.Checked = false;
-            this.Close();
+                // Optionally clear the registration fields after successful registration
+                textBox1.Clear();
+                textBox2.Clear();
+                textBox3.Clear();
+                textBox4.Clear();
+                radioButton1.Checked = false;
+                radioButton2.Checked = false;
+                radioButton3.Checked = false;
 
+                // Switch to login panel after successful registration
+                panel1.Visible = false;
+                pnlLogin.Visible = true;
+                button2.Text = "Switch to Register";
+                this.Text = "Car Store - User Login";
+            }
+            else
+            {
+                MessageBox.Show("Registration failed. Please try again. (Username or Email might already exist)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -453,16 +455,30 @@ namespace carstore
                 return;
             }
 
-            // Dummy login logic:
-            // In a real application, you would query your database to verify credentials.
-            // For demonstration, let's use a hardcoded username and password.
-            if (loginName == "admin" && loginPassword == "123")
+            // Use the DatabaseConnection to validate the user
+            var (success, isAdmin) = DatabaseConnection.ValidateUser(loginName, loginPassword);
+
+            if (success)
             {
-                MessageBox.Show("Login Successful! Welcome to Car Store.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                if (isAdmin)
+                {
+                    // If user is admin, show the AdminPage form
+                    AdminPage adminForm = new AdminPage();
+                    this.Hide(); // Hide the login form
+                    adminForm.ShowDialog(); // Show the admin form modally
+                    this.Close(); // Close the login form after AdminPage is closed
+                }
+                else
+                {
+                    // If user is not admin, show success message or a regular user form
+                    MessageBox.Show("Login Successful! Welcome to Car Store.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // TODO: Add code here to show the regular user's main form
+                    this.Close(); // Close the login form
+                }
             }
             else
             {
+                // If validation failed
                 MessageBox.Show("Invalid Name or Password. Please try again.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -470,5 +486,6 @@ namespace carstore
             textBoxLoginName.Clear();
             textBoxLoginPassword.Clear();
         }
+        // ... rest of the class ...
     }
 }

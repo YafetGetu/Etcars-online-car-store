@@ -23,3 +23,37 @@ E:\tutorial\c sharp\carstore\carstore\obj\Debug\net8.0-windows\carstore.setting.
 E:\tutorial\c sharp\carstore\carstore\obj\Debug\net8.0-windows\carstore.privacy.resources
 E:\tutorial\c sharp\carstore\carstore\obj\Debug\net8.0-windows\carstore.profile.resources
 E:\tutorial\c sharp\carstore\carstore\obj\Debug\net8.0-windows\carstore.Properties.Resources.resources
+C:\Users\hp\Source\Repos\lastcarstore\carstore\bin\Debug\net8.0-windows\carstore.exe
+C:\Users\hp\Source\Repos\lastcarstore\carstore\bin\Debug\net8.0-windows\carstore.deps.json
+C:\Users\hp\Source\Repos\lastcarstore\carstore\bin\Debug\net8.0-windows\carstore.runtimeconfig.json
+C:\Users\hp\Source\Repos\lastcarstore\carstore\bin\Debug\net8.0-windows\carstore.dll
+C:\Users\hp\Source\Repos\lastcarstore\carstore\bin\Debug\net8.0-windows\carstore.pdb
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.about.resources
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.Form1.resources
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.login.resources
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.order.resources
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.payment.resources
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.privacy.resources
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.profile.resources
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.Properties.Resources.resources
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.setting.resources
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.csproj.GenerateResource.cache
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.AssemblyInfoInputs.cache
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.AssemblyInfo.cs
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.csproj.CoreCompileInputs.cache
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.sourcelink.json
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.dll
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\refint\carstore.dll
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.pdb
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.genruntimeconfig.cache
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\ref\carstore.dll
+C:\Users\hp\Source\Repos\lastcarstore\carstore\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+C:\Users\hp\Source\Repos\lastcarstore\carstore\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\hp\Source\Repos\lastcarstore\carstore\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\hp\Source\Repos\lastcarstore\carstore\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\hp\Source\Repos\lastcarstore\carstore\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\hp\Source\Repos\lastcarstore\carstore\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.csproj.AssemblyReference.cache
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.AdminPage.resources
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.csproj.Up2Date
