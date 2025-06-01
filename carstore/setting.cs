@@ -1,45 +1,58 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using carstore; 
+using System.Linq; 
+using System.Collections.Generic; 
 
 namespace carstore
 {
     public partial class setting : Form
     {
-        public setting()
+        private User currentUser; 
+        public List<CartItem> UserCartItems { get; private set; }
+
+        public setting(User user, List<CartItem> cartItems)
         {
             InitializeComponent();
+            this.currentUser = user; 
+            this.UserCartItems = cartItems; 
             InitializeSettingsUI();
             this.StartPosition = FormStartPosition.CenterScreen;
+
+            this.Owner = Application.OpenForms.OfType<Form1>().FirstOrDefault();
+            if (this.Owner != null)
+            {
+                this.Owner.AddOwnedForm(this);
+            }
+
+            this.DialogResult = DialogResult.Cancel;
         }
 
         private void InitializeSettingsUI()
         {
-            // Form setup with dark blue background
-            this.BackColor = Color.FromArgb(0, 40, 85);  // Dark blue background
+            this.BackColor = Color.FromArgb(0, 40, 85);
             this.Size = new Size(500, 500);
             this.Text = "Settings";
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
 
-            // Title label with white text
             Label lblTitle = new Label()
             {
                 Text = "Settings",
                 Font = new Font("Segoe UI", 18, FontStyle.Bold),
                 Location = new Point(20, 20),
                 AutoSize = true,
-                ForeColor = Color.White  // White text
+                ForeColor = Color.White
             };
 
-            // Edit Profile with white text
             Label lblEditProfile = new Label()
             {
                 Text = "Edit Profile",
                 Location = new Point(40, 80),
                 AutoSize = true,
                 Font = new Font("Segoe UI", 11),
-                ForeColor = Color.White  // White text
+                ForeColor = Color.White
             };
 
             Button btnEditProfile = new Button()
@@ -55,19 +68,29 @@ namespace carstore
 
             btnEditProfile.Click += (s, args) =>
             {
-                profile profileForm = new profile();
-                profileForm.ShowDialog(); // Show as profile dialog
+                if (currentUser != null)
+                {
+                    profile profileForm = new profile(currentUser);
+                    DialogResult result = profileForm.ShowDialog();
+
+
+
+                }
+                else
+                {
+                    MessageBox.Show("You must be logged in to edit your profile.", "Login Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
             };
 
-            // Privacy Policy with white text
+
             Label lblPrivacy = new Label()
             {
                 Text = "Privacy Policy",
                 Location = new Point(40, 130),
                 AutoSize = true,
                 Font = new Font("Segoe UI", 11),
-                ForeColor = Color.White  // White text
+                ForeColor = Color.White
             };
 
             Button btnPrivacy = new Button()
@@ -80,22 +103,21 @@ namespace carstore
                 FlatStyle = FlatStyle.Flat
             };
             btnPrivacy.FlatAppearance.BorderSize = 0;
-            
+
             btnPrivacy.Click += (s, e) =>
             {
-                // Create and show the privacy form
                 privacy privacyForm = new privacy();
-                privacyForm.ShowDialog(); // Show as a modal dialog
+                privacyForm.ShowDialog();
             };
 
-            // Feedback & Support with white text
+
             Label lblFeedback = new Label()
             {
                 Text = "Feedback & Support",
                 Location = new Point(40, 180),
                 AutoSize = true,
                 Font = new Font("Segoe UI", 11),
-                ForeColor = Color.White  // White text
+                ForeColor = Color.White
             };
 
             Button btnFeedback = new Button()
@@ -113,14 +135,13 @@ namespace carstore
                 MessageBox.Show("Please email support@carstore.com with your feedback.", "Feedback");
             };
 
-            // Clear All Data with white text
             Label lblClearData = new Label()
             {
-                Text = "Clear All Data",
+                Text = "Clear Cart", 
                 Location = new Point(40, 230),
                 AutoSize = true,
                 Font = new Font("Segoe UI", 11),
-                ForeColor = Color.White  // White text
+                ForeColor = Color.White
             };
 
             Button btnClearData = new Button()
@@ -135,23 +156,30 @@ namespace carstore
             btnClearData.FlatAppearance.BorderSize = 0;
             btnClearData.Click += (s, e) =>
             {
-                var confirm = MessageBox.Show("Clear all app data? This cannot be undone.",
+                var confirm = MessageBox.Show("Clear all items from your cart?",
                     "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (confirm == DialogResult.Yes)
                 {
-                    // TODO: Clear data logic
-                    MessageBox.Show("All data cleared.", "Success");
+                    if (UserCartItems != null) 
+                    {
+                        UserCartItems.Clear();
+                        MessageBox.Show("Your cart has been cleared.", "Success");
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cart is already empty or not accessible.", "Information");
+                    }
                 }
             };
 
-            // Logout with white text
             Label lblLogout = new Label()
             {
                 Text = "Logout",
                 Location = new Point(40, 280),
                 AutoSize = true,
                 Font = new Font("Segoe UI", 11),
-                ForeColor = Color.White  // White text
+                ForeColor = Color.White
             };
 
             Button btnLogout = new Button()
@@ -170,23 +198,24 @@ namespace carstore
                     "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (confirm == DialogResult.Yes)
                 {
-                    // TODO: Logout logic
-                    MessageBox.Show("You have been logged out.", "Success");
-                    this.Close();
+                    this.DialogResult = DialogResult.OK; 
+                    this.Close(); 
+                    
                 }
             };
 
-            // App Version with light gray text
+
             Label lblVersion = new Label()
             {
                 Text = $"Et Cars Version: {Application.ProductVersion}",
-                Location = new Point(20, 420),
+                Location = new Point(20, this.ClientSize.Height - 40), 
                 AutoSize = true,
                 Font = new Font("Segoe UI", 9),
-                ForeColor = Color.LightGray  // Light gray for version text
+                ForeColor = Color.LightGray
             };
+            lblVersion.Anchor = AnchorStyles.Bottom | AnchorStyles.Left; 
 
-            // Add all controls to form
+
             this.Controls.Add(lblTitle);
 
             this.Controls.Add(lblEditProfile);
@@ -205,11 +234,20 @@ namespace carstore
             this.Controls.Add(btnLogout);
 
             this.Controls.Add(lblVersion);
+
+            
         }
 
         private void setting_Load(object sender, EventArgs e)
         {
-
+            
+            Control[] foundVersionLabel = this.Controls.Find("lblVersion", false);
+            if (foundVersionLabel.Length > 0 && foundVersionLabel[0] is Label lblVersion)
+            {
+                lblVersion.Location = new Point(20, this.ClientSize.Height - lblVersion.Height - 10);
+            }
         }
+
+        
     }
 }

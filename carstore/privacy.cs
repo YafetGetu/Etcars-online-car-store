@@ -12,24 +12,22 @@ namespace carstore
             this.Text = "EtCars - Privacy Policy";
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Size = new Size(1150, 1000);
-            this.BackColor = Color.FromArgb(0, 40, 85); // Dark blue background
+            this.BackColor = Color.FromArgb(0, 40, 85); 
 
             SetupControls();
         }
 
         private void SetupControls()
         {
-            // Main panel with dark blue background
             panel1.BackColor = Color.FromArgb(0, 40, 85);
             panel1.Dock = DockStyle.Fill;
             panel1.AutoScroll = true;
 
-            // Adjust spacing parameters
-            int currentYPosition = 30; // Start position
-            int sectionSpacing = 30; // Space between sections
-            int titleContentSpacing = 15; // Space between title and content
+            int currentYPosition = 30; 
+            int sectionSpacing = 30; 
+            int titleContentSpacing = 15; 
 
-            // Privacy Policy title
+            
             Label mainTitle = new Label();
             mainTitle.Text = "EtCars Privacy Policy";
             mainTitle.Font = new Font("Arial", 28, FontStyle.Bold);
@@ -39,7 +37,6 @@ namespace carstore
             currentYPosition += mainTitle.Height + titleContentSpacing;
             panel1.Controls.Add(mainTitle);
 
-            // Last updated date
             Label updateDate = new Label();
             updateDate.Text = "Last Updated: January 2024";
             updateDate.Font = new Font("Arial", 12, FontStyle.Italic);
@@ -49,11 +46,9 @@ namespace carstore
             currentYPosition += updateDate.Height + sectionSpacing;
             panel1.Controls.Add(updateDate);
 
-            // Introduction section
             currentYPosition = AddSection(panel1, "Introduction", currentYPosition,
                 @"At EtCars Automotive, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our dealerships, use our website, or interact with our services. Please read this policy carefully.");
 
-            // Information Collection section
             currentYPosition = AddSection(panel1, "Information We Collect", currentYPosition,
                 @"We may collect personal information that you voluntarily provide to us, including:
 
@@ -124,7 +119,6 @@ To exercise these rights, please contact our Data Protection Officer at privacy@
 
             
 
-            // Close button (styled to match theme)
             Button closeButton = new Button();
             closeButton.Text = "Close Window";
             closeButton.Font = new Font("Arial", 12, FontStyle.Bold);
@@ -142,7 +136,6 @@ To exercise these rights, please contact our Data Protection Officer at privacy@
         {
             int sectionSpacing = 15;
 
-            // Section Title (white text)
             Label sectionTitle = new Label();
             sectionTitle.Text = title;
             sectionTitle.Font = new Font("Arial", 20, FontStyle.Bold | FontStyle.Underline);
@@ -151,7 +144,6 @@ To exercise these rights, please contact our Data Protection Officer at privacy@
             sectionTitle.Location = new Point(50, yPos);
             parent.Controls.Add(sectionTitle);
 
-            // Section Content (light gray text)
             Label sectionContent = new Label();
             sectionContent.Text = content;
             sectionContent.Font = new Font("Arial", 12);
@@ -161,7 +153,6 @@ To exercise these rights, please contact our Data Protection Officer at privacy@
             sectionContent.MaximumSize = new Size(900, 0);
             parent.Controls.Add(sectionContent);
 
-            // Return the new Y position after this section
             return yPos + sectionTitle.Height + sectionSpacing + CalculateTextHeight(content, sectionContent.Font, 900) + 30;
         }
 
@@ -176,12 +167,10 @@ To exercise these rights, please contact our Data Protection Officer at privacy@
 
         private void privacy_Load(object sender, EventArgs e)
         {
-            // Any additional load operations can go here
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            // Custom painting if needed
         }
     }
 }

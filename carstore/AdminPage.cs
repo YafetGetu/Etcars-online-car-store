@@ -12,7 +12,6 @@ namespace carstore
     {
         private string base64ImageString = null;
 
-        // Declare the UI controls at the class level
         private DataGridView dataGridViewCars;
         private TextBox txtBrand;
         private TextBox txtModel;
@@ -25,7 +24,6 @@ namespace carstore
         private Button btnEditCar;
         private Button btnDeleteCar;
 
-        // Order management controls
         private DataGridView dataGridViewOrders;
         private TextBox txtOrderId;
         private TextBox txtCustomerName;
@@ -42,21 +40,18 @@ namespace carstore
 
         public AdminPage()
         {
-            // Set up the form properties
             this.Text = "Car Store - Admin Panel";
             this.Size = new System.Drawing.Size(900, 700);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.BackColor = Color.FromArgb(0, 40, 85);
             this.ForeColor = Color.White;
 
-            // Create the TabControl and add it to the form
             tabControlAdmin = new TabControl();
             tabControlAdmin.Dock = DockStyle.Fill;
             tabControlAdmin.BackColor = Color.FromArgb(0, 40, 85);
             tabControlAdmin.ForeColor = Color.White;
             this.Controls.Add(tabControlAdmin);
 
-            // Create the TabPages and add them to the TabControl
             tabPageCars = new TabPage("Manage Cars");
             tabPageCars.Name = "tabPageCars";
             tabPageCars.BackColor = Color.FromArgb(0, 40, 85);
@@ -70,18 +65,15 @@ namespace carstore
             tabControlAdmin.TabPages.Add(tabPageCars);
             tabControlAdmin.TabPages.Add(tabPageOrders);
 
-            // Set up UI
             SetupCarManagementTab(tabPageCars);
             SetupOrderViewingTab(tabPageOrders);
 
-            // Load initial data
             LoadCars();
             LoadOrders();
         }
 
         private void SetupCarManagementTab(TabPage tab)
         {
-            // Add DataGridView for cars
             dataGridViewCars = new DataGridView();
             dataGridViewCars.Dock = DockStyle.Top;
             dataGridViewCars.Height = 200;
@@ -97,7 +89,6 @@ namespace carstore
             dataGridViewCars.RowHeadersDefaultCellStyle.ForeColor = Color.White;
             tab.Controls.Add(dataGridViewCars);
 
-            // Add controls for car details
             int yPos = dataGridViewCars.Bottom + 20;
             int labelWidth = 100;
             int controlHeight = 25;
@@ -105,7 +96,6 @@ namespace carstore
             int leftMargin = 20;
             int textBoxWidth = 200;
 
-            // Brand
             Label labelBrand = new Label()
             {
                 Text = "Brand:",
@@ -128,7 +118,6 @@ namespace carstore
             tab.Controls.Add(txtBrand);
             yPos += controlHeight + spacing;
 
-            // Model
             Label labelModel = new Label()
             {
                 Text = "Model:",
@@ -151,7 +140,6 @@ namespace carstore
             tab.Controls.Add(txtModel);
             yPos += controlHeight + spacing;
 
-            // Year
             Label labelYear = new Label()
             {
                 Text = "Year:",
@@ -174,7 +162,6 @@ namespace carstore
             tab.Controls.Add(txtYear);
             yPos += controlHeight + spacing;
 
-            // Price
             Label labelPrice = new Label()
             {
                 Text = "Price:",
@@ -197,7 +184,6 @@ namespace carstore
             tab.Controls.Add(txtPrice);
             yPos += controlHeight + spacing;
 
-            // Description
             Label labelDescription = new Label()
             {
                 Text = "Description:",
@@ -221,7 +207,6 @@ namespace carstore
             tab.Controls.Add(txtDescription);
             yPos += controlHeight * 3 + spacing;
 
-            // Image
             Label labelImage = new Label()
             {
                 Text = "Image:",
@@ -256,7 +241,6 @@ namespace carstore
             tab.Controls.Add(btnBrowseImage);
             yPos += pictureBoxCar.Height + spacing;
 
-            // Buttons
             btnAddCar = new Button()
             {
                 Text = "Add Car",
@@ -304,14 +288,13 @@ namespace carstore
 
         private void SetupOrderViewingTab(TabPage tab)
         {
-            // Create a split container to divide the tab into two parts
             SplitContainer splitContainer = new SplitContainer();
             splitContainer.Dock = DockStyle.Fill;
             splitContainer.Orientation = Orientation.Horizontal;
-            splitContainer.SplitterDistance = 300; // DataGridView will take 300 pixels
+            splitContainer.SplitterDistance = 300; 
             tab.Controls.Add(splitContainer);
 
-            // Add DataGridView for orders to the top panel
+            //  DataGridView for orders to the top panel
             dataGridViewOrders = new DataGridView();
             dataGridViewOrders.Dock = DockStyle.Fill;
             dataGridViewOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -326,13 +309,13 @@ namespace carstore
             dataGridViewOrders.RowHeadersDefaultCellStyle.ForeColor = Color.White;
             splitContainer.Panel1.Controls.Add(dataGridViewOrders);
 
-            // Create a panel for order details in the bottom panel
+            //  panel for order details in the bottom panel
             Panel orderDetailsPanel = new Panel();
             orderDetailsPanel.Dock = DockStyle.Fill;
             orderDetailsPanel.BackColor = Color.FromArgb(0, 40, 85);
             splitContainer.Panel2.Controls.Add(orderDetailsPanel);
 
-            // Add controls for order details
+            // controls for order details
             int yPos = 20;
             int labelWidth = 120;
             int controlHeight = 25;
@@ -340,7 +323,6 @@ namespace carstore
             int leftMargin = 20;
             int textBoxWidth = 250;
 
-            // Order ID
             Label labelOrderId = new Label()
             {
                 Text = "Order ID:",
@@ -364,7 +346,6 @@ namespace carstore
             orderDetailsPanel.Controls.Add(txtOrderId);
             yPos += controlHeight + spacing;
 
-            // Customer Name
             Label labelCustomerName = new Label()
             {
                 Text = "Customer Name:",
@@ -388,7 +369,6 @@ namespace carstore
             orderDetailsPanel.Controls.Add(txtCustomerName);
             yPos += controlHeight + spacing;
 
-            // Car Details
             Label labelCarDetails = new Label()
             {
                 Text = "Car Details:",
@@ -412,7 +392,6 @@ namespace carstore
             orderDetailsPanel.Controls.Add(txtCarDetails);
             yPos += controlHeight + spacing;
 
-            // Order Date
             Label labelOrderDate = new Label()
             {
                 Text = "Order Date:",
@@ -435,7 +414,6 @@ namespace carstore
             orderDetailsPanel.Controls.Add(dtpOrderDate);
             yPos += controlHeight + spacing;
 
-            // Order Status
             Label labelOrderStatus = new Label()
             {
                 Text = "Order Status:",
@@ -459,7 +437,6 @@ namespace carstore
             orderDetailsPanel.Controls.Add(cmbOrderStatus);
             yPos += controlHeight + spacing;
 
-            // Total Amount
             Label labelTotalAmount = new Label()
             {
                 Text = "Total Amount:",
@@ -483,7 +460,6 @@ namespace carstore
             orderDetailsPanel.Controls.Add(txtTotalAmount);
             yPos += controlHeight + spacing * 2;
 
-            // Update Order button
             btnUpdateOrder = new Button()
             {
                 Text = "Update Order",
@@ -498,7 +474,6 @@ namespace carstore
             btnUpdateOrder.Click += btnUpdateOrder_Click;
             orderDetailsPanel.Controls.Add(btnUpdateOrder);
 
-            // Cancel Order button
             btnCancelOrder = new Button()
             {
                 Text = "Cancel Order",
@@ -513,7 +488,6 @@ namespace carstore
             btnCancelOrder.Click += btnCancelOrder_Click;
             orderDetailsPanel.Controls.Add(btnCancelOrder);
 
-            // Refresh button at the bottom
             Button btnRefreshOrders = new Button()
             {
                 Text = "Refresh Orders",
@@ -946,7 +920,6 @@ namespace carstore
 
         private void AdminPage_Load(object sender, EventArgs e)
         {
-            // Optional: Any initialization code when the form loads
         }
     }
 }

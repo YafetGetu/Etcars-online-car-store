@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using carstore; // Make sure this is included to use the User class and DatabaseConnection
+using carstore; 
 
 namespace carstore
 {
@@ -14,52 +14,47 @@ namespace carstore
         private TextBox txtEmail;
         private ComboBox cmbGender;
 
-        private User currentUser; // Field to store the passed user data
+        private User currentUser; 
 
-        // Modify the constructor to accept a User object
         public profile(User user)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.BackColor = Color.FromArgb(0, 40, 85);
 
-            // Store the passed user object
+            
             currentUser = user;
 
-            // Set up the form
+            
             this.Text = "User Profile";
-            this.Size = new Size(650, 600);  // Adjusted form size
+            this.Size = new Size(650, 600);  
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
             InitializeProfileComponents();
-            LoadUserData(); // Load data from the passed user object
+            LoadUserData(); 
         }
 
-        // Default constructor (keep it for designer compatibility, though not used when opened from Form1)
         public profile()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.BackColor = Color.FromArgb(0, 40, 85);
 
-            // Set up the form
             this.Text = "User Profile";
-            this.Size = new Size(650, 600);  // Adjusted form size
+            this.Size = new Size(650, 600);  
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
             InitializeProfileComponents();
-            // If this constructor is used, currentUser will be null, LoadUserData will handle this.
             LoadUserData();
         }
 
 
         private void InitializeProfileComponents()
         {
-            // Main panel setup
-            // Ensure panel1 is created by the designer or here if not using designer for panel1
-            if (panel1 == null) // Check if panel1 is created by designer
+
+            if (panel1 == null) 
             {
                 panel1 = new Panel();
                 this.Controls.Add(panel1);
@@ -69,17 +64,14 @@ namespace carstore
             panel1.Location = new Point(30, 30);
             panel1.Size = new Size(580, 450);
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            // panel1 is added to controls in the constructor
 
-            // Font settings
             Font labelFont = new Font("Segoe UI", 11, FontStyle.Bold);
             Font valueFont = new Font("Segoe UI", 10);
-            int labelWidth = 150;  // Fixed width for all labels
-            int controlStartX = 180; // Starting X position for controls
-            int verticalSpacing = 50; // Space between each field
-            int currentY = 40; // Starting Y position
+            int labelWidth = 150;  
+            int controlStartX = 180; 
+            int verticalSpacing = 50; 
+            int currentY = 40; 
 
-            // Full Name
             Label lblName = new Label();
             lblName.Text = "Full Name:";
             lblName.Font = labelFont;
@@ -90,7 +82,7 @@ namespace carstore
             panel1.Controls.Add(lblName);
 
             txtName = new TextBox();
-            txtName.Name = "txtName"; // Give it a name
+            txtName.Name = "txtName"; 
             txtName.Font = valueFont;
             txtName.Location = new Point(controlStartX, currentY);
             txtName.Size = new Size(350, 26);
@@ -100,7 +92,7 @@ namespace carstore
 
             currentY += verticalSpacing;
 
-            // Phone Number
+            
             Label lblPhone = new Label();
             lblPhone.Text = "Phone Number:";
             lblPhone.Font = labelFont;
@@ -111,7 +103,7 @@ namespace carstore
             panel1.Controls.Add(lblPhone);
 
             txtPhone = new TextBox();
-            txtPhone.Name = "txtPhone"; // Give it a name
+            txtPhone.Name = "txtPhone"; 
             txtPhone.Font = valueFont;
             txtPhone.Location = new Point(controlStartX, currentY);
             txtPhone.Size = new Size(350, 26);
@@ -121,7 +113,6 @@ namespace carstore
 
             currentY += verticalSpacing;
 
-            // Email
             Label lblEmail = new Label();
             lblEmail.Text = "Email Address:";
             lblEmail.Font = labelFont;
@@ -132,7 +123,7 @@ namespace carstore
             panel1.Controls.Add(lblEmail);
 
             txtEmail = new TextBox();
-            txtEmail.Name = "txtEmail"; // Give it a name
+            txtEmail.Name = "txtEmail"; 
             txtEmail.Font = valueFont;
             txtEmail.Location = new Point(controlStartX, currentY);
             txtEmail.Size = new Size(350, 26);
@@ -142,7 +133,6 @@ namespace carstore
 
             currentY += verticalSpacing;
 
-            // Gender
             Label lblGender = new Label();
             lblGender.Text = "Gender:";
             lblGender.Font = labelFont;
@@ -153,7 +143,7 @@ namespace carstore
             panel1.Controls.Add(lblGender);
 
             cmbGender = new ComboBox();
-            cmbGender.Name = "cmbGender"; // Give it a name
+            cmbGender.Name = "cmbGender"; 
             cmbGender.Font = valueFont;
             cmbGender.Location = new Point(controlStartX, currentY);
             cmbGender.Size = new Size(150, 26);
@@ -162,9 +152,9 @@ namespace carstore
             cmbGender.Items.AddRange(new object[] { "Male", "Female", "Other", "Prefer not to say" });
             panel1.Controls.Add(cmbGender);
 
-            // Edit/Save button
+            
             btnEditSave = new Button();
-            btnEditSave.Name = "btnEditSave"; // Give it a name
+            btnEditSave.Name = "btnEditSave"; 
             btnEditSave.Text = "Edit";
             btnEditSave.Font = new Font("Segoe UI", 11, FontStyle.Bold);
             btnEditSave.BackColor = Color.FromArgb(0, 120, 215);
@@ -185,24 +175,22 @@ namespace carstore
                 txtPhone.Text = currentUser.PhoneNumber;
                 txtEmail.Text = currentUser.Email;
 
-                // Select the correct gender in the ComboBox
+                
                 if (cmbGender.Items.Contains(currentUser.Gender))
                 {
                     cmbGender.SelectedItem = currentUser.Gender;
                 }
                 else
                 {
-                    cmbGender.SelectedItem = "Prefer not to say"; // Default if gender is not in the list
+                    cmbGender.SelectedItem = "Prefer not to say"; 
                 }
             }
             else
             {
-                // Handle the case where currentUser is null (e.g., if the default constructor was used)
                 txtName.Text = "N/A";
                 txtPhone.Text = "N/A";
                 txtEmail.Text = "N/A";
                 cmbGender.SelectedItem = "Prefer not to say";
-                // Optionally disable editing if no user data is loaded
                 btnEditSave.Enabled = false;
             }
         }
@@ -213,7 +201,6 @@ namespace carstore
 
             if (isEditMode)
             {
-                // Switch to edit mode
                 btnEditSave.Text = "Save";
                 btnEditSave.BackColor = Color.FromArgb(0, 180, 80);
 
@@ -224,31 +211,26 @@ namespace carstore
             }
             else
             {
-                // Switch to view mode and save changes
                 if (currentUser != null)
                 {
-                    // Update the currentUser object with the new data
                     currentUser.fullName = txtName.Text.Trim();
                     currentUser.PhoneNumber = txtPhone.Text.Trim();
                     currentUser.Email = txtEmail.Text.Trim();
-                    currentUser.Gender = cmbGender.SelectedItem?.ToString() ?? "Prefer not to say"; // Handle null selection
+                    currentUser.Gender = cmbGender.SelectedItem?.ToString() ?? "Prefer not to say"; 
 
-                    // Save the data to the database
                     bool saveSuccess = DatabaseConnection.UpdateUser(currentUser);
 
                     if (saveSuccess)
                     {
                         MessageBox.Show("Changes saved successfully!", "Success",
                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        // Optionally refresh the displayed data from the updated currentUser object
-                        LoadUserData(); // This will reload from the potentially updated currentUser object
+                        LoadUserData(); 
                     }
                     else
                     {
                         MessageBox.Show("Failed to save changes. Please try again.", "Save Error",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        // Revert back to edit mode or reload original data if save failed
-                        isEditMode = true; // Stay in edit mode or revert UI
+                        isEditMode = true; 
                         btnEditSave.Text = "Save";
                         btnEditSave.BackColor = Color.FromArgb(0, 180, 80);
                         txtName.ReadOnly = false;
@@ -264,7 +246,6 @@ namespace carstore
                 }
 
 
-                // Always revert UI to view mode after attempting save
                 btnEditSave.Text = "Edit";
                 btnEditSave.BackColor = Color.FromArgb(0, 120, 215);
 
@@ -278,7 +259,6 @@ namespace carstore
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            // Optional: Add custom panel painting if needed
         }
     }
 }

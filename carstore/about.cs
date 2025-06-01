@@ -12,22 +12,20 @@ namespace carstore
             this.Text = "About EtCars - Our Story";
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Size = new Size(1150, 1000);
-            this.BackColor = Color.FromArgb(0, 40, 85); // Dark blue background
+            this.BackColor = Color.FromArgb(0, 40, 85); 
 
             SetupControls();
         }
 
         private void SetupControls()
         {
-            // Main panel with dark blue background
             panel1.BackColor = Color.FromArgb(0, 40, 85);
             panel1.Dock = DockStyle.Fill;
             panel1.AutoScroll = true;
 
-            // Adjust spacing parameters
-            int currentYPosition = 30; // Start position
-            int sectionSpacing = 30; // Space between sections
-            int titleContentSpacing = 15; // Space between title and content
+            int currentYPosition = 30; 
+            int sectionSpacing = 30;
+            int titleContentSpacing = 15; 
 
             // Company logo
             PictureBox logo = new PictureBox();
@@ -53,7 +51,7 @@ namespace carstore
             Label subTitle = new Label();
             subTitle.Text = "Driving Excellence Since 2010";
             subTitle.Font = new Font("Arial", 16, FontStyle.Italic);
-            subTitle.ForeColor = Color.LightGray; // Light gray text
+            subTitle.ForeColor = Color.LightGray; 
             subTitle.AutoSize = true;
             subTitle.Location = new Point(350, currentYPosition + 10);
             currentYPosition += subTitle.Height + sectionSpacing;
@@ -112,7 +110,7 @@ Sustainability: We promote eco-friendly practices in our operations.");
             Label sectionTitle = new Label();
             sectionTitle.Text = title;
             sectionTitle.Font = new Font("Arial", 20, FontStyle.Bold | FontStyle.Underline);
-            sectionTitle.ForeColor = Color.White; // White text
+            sectionTitle.ForeColor = Color.White; 
             sectionTitle.AutoSize = true;
             sectionTitle.Location = new Point(50, yPos);
             parent.Controls.Add(sectionTitle);
@@ -121,13 +119,12 @@ Sustainability: We promote eco-friendly practices in our operations.");
             Label sectionContent = new Label();
             sectionContent.Text = content;
             sectionContent.Font = new Font("Arial", 12);
-            sectionContent.ForeColor = Color.LightGray; // Light gray text
+            sectionContent.ForeColor = Color.LightGray;
             sectionContent.AutoSize = true;
             sectionContent.Location = new Point(50, yPos + sectionTitle.Height + sectionSpacing);
             sectionContent.MaximumSize = new Size(900, 0);
             parent.Controls.Add(sectionContent);
 
-            // Return the new Y position after this section
             return yPos + sectionTitle.Height + sectionSpacing + CalculateTextHeight(content, sectionContent.Font, 900) + 30;
         }
 
@@ -142,12 +139,10 @@ Sustainability: We promote eco-friendly practices in our operations.");
 
         private void about_Load(object sender, EventArgs e)
         {
-            // Any additional load operations can go here
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            // Custom painting if needed
         }
     }
 }
