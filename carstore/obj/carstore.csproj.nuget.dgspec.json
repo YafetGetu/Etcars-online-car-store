@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hp\\source\\repos\\lastcarstore\\carstore\\carstore.csproj": {}
+    "C:\\Users\\hp\\Source\\Repos\\lastcarstore\\carstore\\carstore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hp\\source\\repos\\lastcarstore\\carstore\\carstore.csproj": {
+    "C:\\Users\\hp\\Source\\Repos\\lastcarstore\\carstore\\carstore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\source\\repos\\lastcarstore\\carstore\\carstore.csproj",
+        "projectUniqueName": "C:\\Users\\hp\\Source\\Repos\\lastcarstore\\carstore\\carstore.csproj",
         "projectName": "carstore",
-        "projectPath": "C:\\Users\\hp\\source\\repos\\lastcarstore\\carstore\\carstore.csproj",
+        "projectPath": "C:\\Users\\hp\\Source\\Repos\\lastcarstore\\carstore\\carstore.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\source\\repos\\lastcarstore\\carstore\\obj\\",
+        "outputPath": "C:\\Users\\hp\\Source\\Repos\\lastcarstore\\carstore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
