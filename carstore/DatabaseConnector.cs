@@ -15,7 +15,7 @@ namespace carstore
         // !! IMPORTANT !!
         // Replace "Your_Connection_String_Here" with the actual connection string
         // you copied from the Server Explorer properties.
-        private static string connectionString = "Data Source=.;Initial Catalog=CarStore1;Integrated Security=True;Encrypt=False;";
+        private static string connectionString = "Data Source=.;Initial Catalog=lastcardb;Integrated Security=True;Encrypt=False;";
 
         public static SqlConnection GetConnection()
         {
@@ -122,5 +122,181 @@ namespace carstore
             }
             return cars;
         }
+        // Add to DatabaseConnection.cs
+        public static User GetUserData(string username)
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT UserID, fullName, email, phoneNumber, gender, IsAdmin FROM Users WHERE fullName = @fullName";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@fullName", username);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                return new User
+                                {
+                                    UserID = reader.GetInt32(reader.GetOrdinal("UserID")),
+                                    fullName = reader.GetString(reader.GetOrdinal("fullName")),
+                                    Email = reader.GetString(reader.GetOrdinal("email")),
+                                    PhoneNumber = reader.GetString(reader.GetOrdinal("phoneNumber")),
+                                    Gender = reader.GetString(reader.GetOrdinal("gender")),
+                                    IsAdmin = reader.GetBoolean(reader.GetOrdinal("IsAdmin"))
+                                };
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error retrieving user data: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            return null;
+        }
+
+        // Add to DatabaseConnection.cs
+        public static bool UpdateUser(User user)
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"UPDATE Users
+                             SET fullName = @fullName,
+                                 email = @email,
+                                 phoneNumber = @phoneNumber,
+                                 gender = @gender
+                             WHERE UserID = @userID"; // Assuming UserID is your primary key
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@fullName", user.fullName);
+                        cmd.Parameters.AddWithValue("@email", user.Email);
+                        cmd.Parameters.AddWithValue("@phoneNumber", user.PhoneNumber);
+                        cmd.Parameters.AddWithValue("@gender", user.Gender);
+                        cmd.Parameters.AddWithValue("@userID", user.UserID); // Use the UserID to identify the user
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error updating user data: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // In a real app, log this exception
+                    return false;
+                }
+            }
+
+
+        }
+        // Add this method to your DatabaseConnection.cs file
+        public static bool CreateOrder(int userId, int carId, decimal totalAmount)
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    // Insert into Orders table. OrderDate defaults to GETDATE(), Status defaults to 'Pending'
+                    string query = @"INSERT INTO Orders (UserID, CarID, TotalAmount)
+                           VALUES (@userId, @carId, @totalAmount)";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@userId", userId);
+                        cmd.Parameters.AddWithValue("@carId", carId);
+                        cmd.Parameters.AddWithValue("@totalAmount", totalAmount);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        return rowsAffected > 0; // Returns true if the order was successfully inserted
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error creating order in database: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // In a real app, log this exception
+                    return false;
+                }
+            }
+        }
+        // Add this method to your DatabaseConnection.cs file
+        public static List<OrderDisplayItem> GetUserOrders(int userId)
+        {
+            List<OrderDisplayItem> orders = new List<OrderDisplayItem>();
+            using (SqlConnection conn = GetConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    // Join Orders and Cars tables to get car details for each order
+                    string query = @"SELECT o.OrderID, c.Brand, c.Model, c.Year, o.TotalAmount, o.OrderDate, o.Status
+                             FROM Orders o
+                             JOIN Cars c ON o.CarID = c.CarID
+                             WHERE o.UserID = @userId
+                             ORDER BY o.OrderDate DESC"; // Order by most recent first
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@userId", userId);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                orders.Add(new OrderDisplayItem
+                                {
+                                    OrderID = reader.GetInt32(reader.GetOrdinal("OrderID")),
+                                    Car = $"{reader.GetString(reader.GetOrdinal("Brand"))} {reader.GetString(reader.GetOrdinal("Model"))} ({reader.GetInt32(reader.GetOrdinal("Year"))})",
+                                    TotalAmount = reader.GetDecimal(reader.GetOrdinal("TotalAmount")),
+                                    OrderDate = reader.GetDateTime(reader.GetOrdinal("OrderDate")),
+                                    Status = reader.GetString(reader.GetOrdinal("Status"))
+                                });
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading user orders from database: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // In a real app, log this exception
+                }
+            }
+            return orders;
+        }
+
+        // Inside DatabaseConnection.cs
+        //public static bool MarkCarAsUnavailable(int carId)
+        //{
+        //    using (SqlConnection conn = GetConnection())
+        //    {
+        //        try
+        //        {
+        //            conn.Open();
+        //            string query = @"UPDATE Cars
+        //                         SET IsAvailable = 0
+        //                         WHERE CarID = @carId";
+
+        //            using (SqlCommand cmd = new SqlCommand(query, conn))
+        //            {
+        //                cmd.Parameters.AddWithValue("@carId", carId);
+
+        //                int rowsAffected = cmd.ExecuteNonQuery();
+        //                return rowsAffected > 0; // Returns true if the car was marked unavailable
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show($"Error marking car {carId} as unavailable: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            // In a real app, log this exception
+        //            return false;
+        //        }
+        //    }
+        //}
     }
 }

@@ -8,6 +8,9 @@ namespace carstore
     public partial class login : Form
     {
 
+        // Add this public property to store the logged-in username
+        public string LoggedInUsername { get; private set; }
+
         // ... existing code for panel and controls declarations ...
         // Panel to hold all login-related controls (dynamically created)
         private Panel pnlLogin;
@@ -34,6 +37,9 @@ namespace carstore
 
             // Correctly parent radio buttons to the group box, as designer might place them directly on panel.
             //CorrectRadioButtonParenting();
+
+            // Initialize the LoggedInUsername property
+            LoggedInUsername = string.Empty;
         }
 
         /// <summary>
@@ -161,6 +167,18 @@ namespace carstore
             radioButton3.Size = new Size(150, 25);
             radioButton3.Location = new Point(10, 70);
 
+
+            // Correctly parent radio buttons to the group box if they are added to the panel by designer
+            if (panel1.Controls.Contains(radioButton1)) panel1.Controls.Remove(radioButton1);
+            if (panel1.Controls.Contains(radioButton2)) panel1.Controls.Remove(radioButton2);
+            if (panel1.Controls.Contains(radioButton3)) panel1.Controls.Remove(radioButton3);
+
+            // Add them to the groupBox1
+            if (!groupBox1.Controls.Contains(radioButton1)) groupBox1.Controls.Add(radioButton1);
+            if (!groupBox1.Controls.Contains(radioButton2)) groupBox1.Controls.Add(radioButton2);
+            if (!groupBox1.Controls.Contains(radioButton3)) groupBox1.Controls.Add(radioButton3);
+
+
             yPos += groupBox1.Height + 20; // Move yPos past the group box with some extra spacing
 
             // Button 1: Register
@@ -173,22 +191,13 @@ namespace carstore
             button1.ForeColor = Color.White;
             button1.FlatStyle = FlatStyle.Flat;
             button1.FlatAppearance.BorderSize = 0;
-
-
-            panel1.Controls.Remove(radioButton1);
-            panel1.Controls.Remove(radioButton2);
-            panel1.Controls.Remove(radioButton3);
-
-            // Add them to the groupBox1
-            groupBox1.Controls.Add(radioButton1);
-            groupBox1.Controls.Add(radioButton2);
-            groupBox1.Controls.Add(radioButton3);
         }
 
 
         private void SetupLoginPanel()
         {
             pnlLogin = new Panel();
+            pnlLogin.Name = "pnlLogin"; // Give the dynamically created panel a name
             pnlLogin.Size = new Size(600, 550); // Increased height to accommodate the new button
                                                 // Position centered, slightly lower than register panel for visual separation
             pnlLogin.Location = new Point((this.ClientSize.Width - panel1.Width) / 2, 80);
@@ -207,6 +216,7 @@ namespace carstore
 
             // Label for Login Name
             labelLoginName = new Label();
+            labelLoginName.Name = "labelLoginName"; // Give the label a name
             labelLoginName.Text = "Name:";
             labelLoginName.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
             labelLoginName.Size = new Size(loginLabelWidth, loginControlHeight);
@@ -214,6 +224,7 @@ namespace carstore
             pnlLogin.Controls.Add(labelLoginName);
 
             textBoxLoginName = new TextBox();
+            textBoxLoginName.Name = "textBoxLoginName"; // Give the textbox a name
             textBoxLoginName.PlaceholderText = "Enter your username or full name";
             textBoxLoginName.Font = new Font("Segoe UI", 10F);
             textBoxLoginName.Size = new Size(loginTextBoxWidth, loginControlHeight);
@@ -225,6 +236,7 @@ namespace carstore
 
             // Label for Login Password
             labelLoginPassword = new Label();
+            labelLoginPassword.Name = "labelLoginPassword"; // Give the label a name
             labelLoginPassword.Text = "Password:";
             labelLoginPassword.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
             labelLoginPassword.Size = new Size(loginLabelWidth, loginControlHeight);
@@ -232,6 +244,7 @@ namespace carstore
             pnlLogin.Controls.Add(labelLoginPassword);
 
             textBoxLoginPassword = new TextBox();
+            textBoxLoginPassword.Name = "textBoxLoginPassword"; // Give the textbox a name
             textBoxLoginPassword.PlaceholderText = "Enter your password";
             textBoxLoginPassword.Font = new Font("Segoe UI", 10F);
             textBoxLoginPassword.Size = new Size(loginTextBoxWidth, loginControlHeight);
@@ -244,6 +257,7 @@ namespace carstore
 
             // Button to Perform Login (specific to the login panel)
             buttonPerformLogin = new Button();
+            buttonPerformLogin.Name = "buttonPerformLogin"; // Give the button a name
             buttonPerformLogin.Text = "Login";
             buttonPerformLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             buttonPerformLogin.Size = new Size(150, 45);
@@ -260,6 +274,7 @@ namespace carstore
 
             // Button to Switch to Registration Panel
             Button buttonSwitchToRegister = new Button();
+            buttonSwitchToRegister.Name = "buttonSwitchToRegister"; // Give the button a name
             buttonSwitchToRegister.Text = "Don't have an account? Register";
             buttonSwitchToRegister.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
             buttonSwitchToRegister.Size = new Size(250, 35);
@@ -460,6 +475,10 @@ namespace carstore
 
             if (success)
             {
+                // Set the public property and DialogResult before closing
+                LoggedInUsername = loginName;
+                DialogResult = DialogResult.OK;
+
                 if (isAdmin)
                 {
                     // If user is admin, show the AdminPage form
@@ -472,19 +491,19 @@ namespace carstore
                 {
                     // If user is not admin, show success message or a regular user form
                     MessageBox.Show("Login Successful! Welcome to Car Store.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // TODO: Add code here to show the regular user's main form
-                    this.Close(); // Close the login form
+                    // Close the login form, Form1 will handle showing the main content
+                    this.Close();
                 }
             }
             else
             {
                 // If validation failed
                 MessageBox.Show("Invalid Name or Password. Please try again.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
-            // Optionally clear login fields after attempt
-            textBoxLoginName.Clear();
-            textBoxLoginPassword.Clear();
+                // Optionally clear login fields after failed attempt
+                textBoxLoginName.Clear();
+                textBoxLoginPassword.Clear();
+            }
         }
         // ... rest of the class ...
     }

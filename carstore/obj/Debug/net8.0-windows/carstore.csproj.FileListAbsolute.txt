@@ -57,3 +57,4 @@ C:\Users\hp\Source\Repos\lastcarstore\carstore\bin\Debug\net8.0-windows\runtimes
 C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.csproj.AssemblyReference.cache
 C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.AdminPage.resources
 C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.csproj.Up2Date
+C:\Users\hp\Source\Repos\lastcarstore\carstore\obj\Debug\net8.0-windows\carstore.CartItem.resources

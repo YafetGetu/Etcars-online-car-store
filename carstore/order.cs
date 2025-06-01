@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using carstore; // Make sure this is included to use User, DatabaseConnection, and OrderDisplayItem
 
 namespace carstore
 {
@@ -15,17 +17,35 @@ namespace carstore
         private readonly Font labelFont = new Font("Segoe UI", 10, FontStyle.Regular);
         private readonly Font buttonFont = new Font("Segoe UI", 10, FontStyle.Bold);
 
+        private User currentUser; // Field to hold the logged-in user
+        private DataGridView dgvOrders; // DataGridView to display orders
+
+        // Modify the constructor to accept a User object
+        public order(User user)
+        {
+            InitializeComponent();
+            // Store the passed user object
+            currentUser = user;
+            InitializeCustomComponents();
+            LoadUserOrders(); // Load and display orders for this user
+        }
+
+        // Default constructor (keep for designer, handle null user in LoadUserOrders)
         public order()
         {
             InitializeComponent();
+            // currentUser will be null initially if this constructor is used
             InitializeCustomComponents();
+            LoadUserOrders(); // Attempt to load orders (will handle null user)
         }
+
 
         private void InitializeCustomComponents()
         {
             // Form setup with dark background
-            this.Text = "Luxury Car Order Form";
-            this.Size = new Size(600, 650);
+            this.Text = "My Luxury Car Orders"; // Updated title
+            this.Size = new Size(700, 500); // Adjusted size for displaying list
+            this.MinimumSize = new Size(600, 400); // Allow some resizing
             this.StartPosition = FormStartPosition.CenterScreen;
             this.BackColor = Color.FromArgb(0, 40, 85); // Dark blue background
 
@@ -37,172 +57,117 @@ namespace carstore
 
             // Title label (white text)
             Label titleLabel = new Label();
-            titleLabel.Text = "ORDER YOUR DREAM CAR";
+            titleLabel.Text = "MY ORDERS"; // Updated title text
             titleLabel.Font = titleFont;
             titleLabel.ForeColor = textColor; // White text
             titleLabel.AutoSize = true;
-            titleLabel.Location = new Point(120, 20);
+            // Center title horizontally
+            titleLabel.Location = new Point((panel1.ClientSize.Width - titleLabel.Width) / 2, 20);
             panel1.Controls.Add(titleLabel);
 
             // Horizontal line under title (light blue)
             Panel titleLine = new Panel();
             titleLine.BackColor = primaryColor;
-            titleLine.Size = new Size(450, 2);
-            titleLine.Location = new Point(50, 60);
+            titleLine.Size = new Size(panel1.ClientSize.Width - 40, 2); // Adjust width to panel padding
+            titleLine.Location = new Point(20, 60); // Position below title
             panel1.Controls.Add(titleLine);
 
-            // Model selection
-            CreateLabel("Car Model:", 50, 80);
-            ComboBox modelComboBox = CreateComboBox(200, 80);
-            modelComboBox.Items.AddRange(new string[] { "Toyota Hilux", "Land Cruiser", "Ferrari", "Lamborghini", "Tesla Model 5", "Porche 911", "Range Rover", "BMW M5" });
 
-            // Color selection
-            CreateLabel("Exterior Color:", 50, 130);
-            ComboBox colorComboBox = CreateComboBox(200, 130);
-            colorComboBox.Items.AddRange(new string[] { "Midnight Black", "Arctic White", "Royal Blue", "Ruby Red", "Silver Metallic", "Emerald Green" });
+            // DataGridView to display orders
+            dgvOrders = new DataGridView();
+            dgvOrders.Name = "dgvOrders";
+            dgvOrders.Location = new Point(20, 80); // Position below title line
+            dgvOrders.Size = new Size(panel1.ClientSize.Width - 40, panel1.ClientSize.Height - 100); // Fill remaining space
+            dgvOrders.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right; // Anchor to resize with panel
 
-            // Engine type
-            CreateLabel("Engine Type:", 50, 180);
-            ComboBox engineComboBox = CreateComboBox(200, 180);
-            engineComboBox.Items.AddRange(new string[] { "V6 Twin-Turbo", "V8 Performance", "Hybrid Premium", "Electric Performance", "Diesel Elite" });
+            dgvOrders.AutoGenerateColumns = true; // Automatically create columns from data source
+            dgvOrders.ReadOnly = true; // Make it read-only
+            dgvOrders.AllowUserToAddRows = false; // Prevent adding new rows via UI
+            dgvOrders.AllowUserToDeleteRows = false; // Prevent deleting rows via UI
+            dgvOrders.AllowUserToResizeRows = false; // Prevent resizing rows
+            dgvOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // Auto-size columns to fill width
 
-            // Transmission
-            CreateLabel("Transmission:", 50, 230);
-            ComboBox transmissionComboBox = CreateComboBox(200, 230);
-            transmissionComboBox.Items.AddRange(new string[] { "8-Speed Automatic", "7-Speed Dual-Clutch", "10-Speed Automatic", "Manual Sport" });
+            // Styling for DataGridView (optional but recommended for dark theme)
+            dgvOrders.BackgroundColor = Color.FromArgb(50, 50, 80); // Dark background for the grid
+            dgvOrders.DefaultCellStyle.BackColor = Color.FromArgb(70, 70, 100); // Alternate row color 1
+            dgvOrders.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(80, 80, 110); // Alternate row color 2
+            dgvOrders.DefaultCellStyle.ForeColor = textColor; // White text for data cells
+            dgvOrders.ColumnHeadersDefaultCellStyle.BackColor = primaryColor; // Blue header background
+            dgvOrders.ColumnHeadersDefaultCellStyle.ForeColor = Color.White; // White header text
+            dgvOrders.EnableHeadersVisualStyles = false; // Allow custom header style
+            dgvOrders.CellBorderStyle = DataGridViewCellBorderStyle.None; // No cell borders
+            dgvOrders.RowHeadersVisible = false; // Hide row headers
+            dgvOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Select full row on click
+            dgvOrders.AllowUserToOrderColumns = true; // Allow reordering columns
 
-            // Interior package
-            CreateLabel("Interior Package:", 50, 280);
-            ComboBox interiorComboBox = CreateComboBox(200, 280);
-            interiorComboBox.Items.AddRange(new string[] { "Standard Luxury", "Premium Leather", "Executive Lounge", "Sport Carbon" });
+            panel1.Controls.Add(dgvOrders);
 
-            // Additional features
-            Label featuresLabel = CreateLabel("Additional Features:", 50, 330);
-            featuresLabel.Font = new Font(labelFont, FontStyle.Bold);
-            featuresLabel.ForeColor = textColor; // White text
+            // Remove all the old controls related to placing an order
+            // (You would need to list them by name or clear panel1 if all were added programmatically to panel1)
+            // For simplicity, if all previous controls were added to panel1:
+            // panel1.Controls.Clear(); // Use with caution if panel1 contains other design-time controls
+            // A safer way is to remove specific controls if you named them
+            // e.g., panel1.Controls.Remove(modelComboBox);
+            // However, since they were created programmatically in InitializeCustomComponents,
+            // we just won't create them in the new version of this method.
 
-            // Feature checkboxes with white text
-            CheckBox leatherSeatsCheck = CreateStyledCheckBox("Nappa Leather Seats (+$50,500 ETB", 200, 330);
-            CheckBox sunroofCheck = CreateStyledCheckBox("Panoramic Sunroof (+$20,800ETB)", 200, 360);
-            CheckBox navigationCheck = CreateStyledCheckBox("Premium Navigation (+$14,200ETB)", 200, 390);
-            CheckBox soundSystemCheck = CreateStyledCheckBox("Bespoke Audio System (+$35,500ETB)", 200, 420);
+        }
 
-            // Customer name
-            CreateLabel("Your Name:", 50, 460);
-            TextBox nameTextBox = new TextBox();
-            nameTextBox.Location = new Point(200, 460);
-            nameTextBox.Size = new Size(250, 25);
-            nameTextBox.Font = labelFont;
-            nameTextBox.ForeColor = Color.Black; // Keep black text for input
-            nameTextBox.BackColor = Color.White; // White background for contrast
-            nameTextBox.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(nameTextBox);
-
-            // Order button with accent color
-            Button orderButton = new Button();
-            orderButton.Text = "CONFIRM ORDER";
-            orderButton.Location = new Point(200, 510);
-            orderButton.Size = new Size(150, 45);
-            orderButton.Font = buttonFont;
-            orderButton.ForeColor = Color.White;
-            orderButton.FlatStyle = FlatStyle.Flat;
-            orderButton.FlatAppearance.BorderSize = 0;
-            orderButton.BackColor = primaryColor;
-            orderButton.Cursor = Cursors.Hand;
-
-            // Hover effects for button
-            orderButton.MouseEnter += (sender, e) => orderButton.BackColor = Color.FromArgb(0, 96, 160);
-            orderButton.MouseLeave += (sender, e) => orderButton.BackColor = primaryColor;
-
-            orderButton.Click += (sender, e) =>
+        private void LoadUserOrders()
+        {
+            if (currentUser != null)
             {
-                if (string.IsNullOrWhiteSpace(nameTextBox.Text))
+                List<OrderDisplayItem> userOrders = DatabaseConnection.GetUserOrders(currentUser.UserID);
+
+                if (userOrders != null && userOrders.Count > 0)
                 {
-                    ShowError("Please enter your name to proceed with the order.");
-                    return;
-                }
+                    // Bind the list of orders to the DataGridView
+                    dgvOrders.DataSource = userOrders;
 
-                if (modelComboBox.SelectedItem == null)
+                    // Optional: Customize column headers if AutoGenerateColumns is true
+                    // dgvOrders.Columns["OrderID"].HeaderText = "Order ID";
+                    // dgvOrders.Columns["Car"].HeaderText = "Car Ordered";
+                    // dgvOrders.Columns["TotalAmount"].HeaderText = "Total Amount";
+                    // dgvOrders.Columns["OrderDate"].HeaderText = "Order Date";
+                    // dgvOrders.Columns["Status"].HeaderText = "Status";
+
+                    // Optional: Format currency and date columns
+                    dgvOrders.Columns["TotalAmount"].DefaultCellStyle.Format = "C2"; // Currency format (adjust culture if needed)
+                    dgvOrders.Columns["OrderDate"].DefaultCellStyle.Format = "yyyy-MM-dd HH:mm"; // Date and time format
+                }
+                else
                 {
-                    ShowError("Please select your desired car model.");
-                    return;
+                    // Display a message if no orders are found
+                    Label noOrdersLabel = new Label();
+                    noOrdersLabel.Text = "No orders found for this user.";
+                    noOrdersLabel.Font = labelFont;
+                    noOrdersLabel.ForeColor = lightTextColor;
+                    noOrdersLabel.AutoSize = true;
+                    noOrdersLabel.Location = new Point(20, 80); // Position below the title line
+                    panel1.Controls.Add(noOrdersLabel);
+
+                    // Hide the DataGridView if no orders
+                    dgvOrders.Visible = false;
                 }
+            }
+            else
+            {
+                // Handle case where user is not logged in (should be prevented by Form1, but good for robustness)
+                Label loginRequiredLabel = new Label();
+                loginRequiredLabel.Text = "Please log in to view your orders.";
+                loginRequiredLabel.Font = titleFont;
+                loginRequiredLabel.ForeColor = Color.Red;
+                loginRequiredLabel.AutoSize = true;
+                loginRequiredLabel.Location = new Point((panel1.ClientSize.Width - loginRequiredLabel.Width) / 2, panel1.ClientSize.Height / 2 - 20); // Center message
+                panel1.Controls.Add(loginRequiredLabel);
 
-                string features = "";
-                if (leatherSeatsCheck.Checked) features += "Nappa Leather Seats, ";
-                if (sunroofCheck.Checked) features += "Panoramic Sunroof, ";
-                if (navigationCheck.Checked) features += "Premium Navigation, ";
-                if (soundSystemCheck.Checked) features += "Bespoke Audio System, ";
-                if (features.Length > 0) features = features.Remove(features.Length - 2);
-
-                string message = $"THANK YOU, {nameTextBox.Text.ToUpper()}!\n\n" +
-                                "YOUR LUXURY CAR ORDER DETAILS:\n\n" +
-                                $"▪ Model: {modelComboBox.SelectedItem}\n" +
-                                $"▪ Color: {(colorComboBox.SelectedItem ?? "To be selected")}\n" +
-                                $"▪ Engine: {(engineComboBox.SelectedItem ?? "To be selected")}\n" +
-                                $"▪ Transmission: {(transmissionComboBox.SelectedItem ?? "To be selected")}\n" +
-                                $"▪ Interior: {(interiorComboBox.SelectedItem ?? "To be selected")}\n" +
-                                $"▪ Features: {(string.IsNullOrEmpty(features) ? "None selected" : features)}\n\n" +
-                                "Our sales representative will contact you shortly to finalize your order.";
-
-                ShowConfirmation(message, "Order Confirmation");
-            };
-            panel1.Controls.Add(orderButton);
+                // Hide the DataGridView if no user
+                dgvOrders.Visible = false;
+            }
         }
 
-        private Label CreateLabel(string text, int x, int y)
-        {
-            Label label = new Label();
-            label.Text = text;
-            label.Font = labelFont;
-            label.ForeColor = textColor; // White text
-            label.Location = new Point(x, y);
-            label.AutoSize = true;
-            panel1.Controls.Add(label);
-            return label;
-        }
-
-        private ComboBox CreateComboBox(int x, int y)
-        {
-            ComboBox comboBox = new ComboBox();
-            comboBox.Location = new Point(x, y);
-            comboBox.Size = new Size(250, 25);
-            comboBox.Font = labelFont;
-            comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox.FlatStyle = FlatStyle.Flat;
-            comboBox.BackColor = Color.White; // White background for contrast
-            comboBox.ForeColor = Color.Black; // Black text for readability
-            panel1.Controls.Add(comboBox);
-            return comboBox;
-        }
-
-        private CheckBox CreateStyledCheckBox(string text, int x, int y)
-        {
-            CheckBox checkBox = new CheckBox();
-            checkBox.Text = text;
-            checkBox.Location = new Point(x, y);
-            checkBox.Font = labelFont;
-            checkBox.ForeColor = textColor; // White text
-            checkBox.AutoSize = true;
-            checkBox.FlatStyle = FlatStyle.Flat;
-            panel1.Controls.Add(checkBox);
-            return checkBox;
-        }
-
-        private void ShowError(string message)
-        {
-            MessageBox.Show(message, "Order Information Needed",
-                          MessageBoxButtons.OK,
-                          MessageBoxIcon.Exclamation);
-        }
-
-        private void ShowConfirmation(string message, string title)
-        {
-            MessageBox.Show(message, title,
-                          MessageBoxButtons.OK,
-                          MessageBoxIcon.Information);
-            this.Close();
-        }
+        // Remove all helper methods related to creating input controls
+        // (CreateLabel, CreateComboBox, CreateStyledCheckBox, ShowError, ShowConfirmation)
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -213,5 +178,8 @@ namespace carstore
                                   primaryColor, 1, ButtonBorderStyle.Solid,
                                   primaryColor, 1, ButtonBorderStyle.Solid);
         }
+
+        // Keep any other event handlers generated by the designer if they exist (e.g., order_Load)
+        // private void order_Load(object sender, EventArgs e) { }
     }
 }
