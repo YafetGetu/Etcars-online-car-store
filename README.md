@@ -77,7 +77,7 @@ The **ET Car Store Desktop App** is a simple and user-friendly C# Windows Forms 
 
 🗃️ **Database**  
 - Data is stored in **MySQL**.  
-- Database location: `carstore/bin/Debug/net8.0-windows/db`.  
+- Database location: `carstore/bin/Debug/net8.0-windows/db/carstoreDB.sql`.  
 
 ## 🧑‍💻 Author
 
