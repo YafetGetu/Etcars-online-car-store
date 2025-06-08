@@ -15,6 +15,10 @@ The **Car Store Desktop App** is a simple and user-friendly C# Windows Forms app
 - Windows Forms
 - Visual Studio
 
+## 🔐 Login / Register page
+
+![image alt](https://github.com/YafetGetu/carstore/blob/7dee4a22309d2ae7bd895f9aed94b347b424632a/screenshoot/register.png)
+
 ## 📦 How to Run
 
 1. Clone or download the project.
@@ -25,6 +29,29 @@ The **Car Store Desktop App** is a simple and user-friendly C# Windows Forms app
 ## 🔐 Front page
 
 ![image alt](https://github.com/YafetGetu/carstore/blob/7dee4a22309d2ae7bd895f9aed94b347b424632a/screenshoot/front.png)
+
+## 🛠 Admin page
+
+- 🏷️ **View Cars for Sale** – Browse a list of available cars with details like model, price, and image.
+
+- 🔐 **Admin Access** –  
+  You can log in to the **Admin Panel** using:  
+  - **Username:** `admin`  
+  - **Password:** `admin@123`
+  
+![image alt](https://github.com/YafetGetu/carstore/blob/7dee4a22309d2ae7bd895f9aed94b347b424632a/screenshoot/admin.png)
+
+  Once logged in, the admin can:
+  - 🛠️ Edit car details such as model, price, and information  
+  - ➕ Add new cars to the store  
+  - 📋 Manage customer orders and update order status  
+
+- 🛒 **Make an Order** – Customers can select a car and place an order directly through the app.
+
+- 📋 **Order Management** – The app stores customer orders for review and processing.
+
+- 🎨 **Modern UI** – Clean and professional interface with intuitive navigation.
+
 
 ## 📁 Project Structure (Example)
 
