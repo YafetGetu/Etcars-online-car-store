@@ -91,6 +91,8 @@ namespace carstore
             panel12.Size = new Size(105, 100);
             panel12.TabIndex = 9;
             panel12.Paint += panel12_Paint;
+
+
             //
             // panel13
             //

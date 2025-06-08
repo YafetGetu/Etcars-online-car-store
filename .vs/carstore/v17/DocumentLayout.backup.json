@@ -1,74 +1,62 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\tutorial\\c sharp\\carstore\\",
+  "WorkspaceRootPath": "C:\\Users\\HP\\source\\repos\\carstore1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|e:\\tutorial\\c sharp\\carstore\\carstore\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|c:\\users\\hp\\source\\repos\\carstore1\\carstore\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|e:\\tutorial\\c sharp\\carstore\\carstore\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|E:\\tutorial\\c sharp\\carstore\\carstore\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|e:\\tutorial\\c sharp\\carstore\\carstore\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|e:\\tutorial\\c sharp\\carstore\\carstore\\privacy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\privacy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|e:\\tutorial\\c sharp\\carstore\\carstore\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|E:\\tutorial\\c sharp\\carstore\\carstore\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|E:\\tutorial\\c sharp\\carstore\\carstore\\privacy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\privacy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|e:\\tutorial\\c sharp\\carstore\\carstore\\about.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\about.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|e:\\tutorial\\c sharp\\carstore\\carstore\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|E:\\tutorial\\c sharp\\carstore\\carstore\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|E:\\tutorial\\c sharp\\carstore\\carstore\\about.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\about.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|E:\\tutorial\\c sharp\\carstore\\carstore\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|e:\\tutorial\\c sharp\\carstore\\carstore\\payment.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\payment.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|e:\\tutorial\\c sharp\\carstore\\carstore\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|E:\\tutorial\\c sharp\\carstore\\carstore\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|E:\\tutorial\\c sharp\\carstore\\carstore\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|c:\\users\\hp\\source\\repos\\carstore1\\carstore\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|c:\\users\\hp\\source\\repos\\carstore1\\carstore\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|c:\\users\\hp\\source\\repos\\carstore1\\carstore\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|c:\\users\\hp\\source\\repos\\carstore1\\carstore\\databaseconnector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\databaseconnector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|c:\\users\\hp\\source\\repos\\carstore1\\carstore\\adminpage.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\adminpage.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|c:\\users\\hp\\source\\repos\\carstore1\\carstore\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|c:\\users\\hp\\source\\repos\\carstore1\\carstore\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|c:\\users\\hp\\source\\repos\\carstore1\\carstore\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E16C6598-5902-4334-A4DC-2C0C06B54F2E}|carstore\\carstore.csproj|solutionrelative:carstore\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -78,7 +66,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -86,212 +74,172 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "privacy.cs",
-              "DocumentMoniker": "E:\\tutorial\\c sharp\\carstore\\carstore\\privacy.cs",
-              "RelativeDocumentMoniker": "carstore\\privacy.cs",
-              "ToolTip": "E:\\tutorial\\c sharp\\carstore\\carstore\\privacy.cs",
-              "RelativeToolTip": "carstore\\privacy.cs",
-              "ViewState": "AgIAACQAAAAAMDMzMzMLwBEAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "carstore\\Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\Form1.Designer.cs",
+              "RelativeToolTip": "carstore\\Form1.Designer.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAAwE0AAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T13:16:09.724Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T20:32:22.755Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "profile.cs",
-              "DocumentMoniker": "E:\\tutorial\\c sharp\\carstore\\carstore\\profile.cs",
-              "RelativeDocumentMoniker": "carstore\\profile.cs",
-              "ToolTip": "E:\\tutorial\\c sharp\\carstore\\carstore\\profile.cs",
-              "RelativeToolTip": "carstore\\profile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJIAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T12:31:27.913Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "privacy.cs [Design]",
-              "DocumentMoniker": "E:\\tutorial\\c sharp\\carstore\\carstore\\privacy.cs",
-              "RelativeDocumentMoniker": "carstore\\privacy.cs",
-              "ToolTip": "E:\\tutorial\\c sharp\\carstore\\carstore\\privacy.cs [Design]",
-              "RelativeToolTip": "carstore\\privacy.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T12:24:37.404Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "payment.cs",
-              "DocumentMoniker": "E:\\tutorial\\c sharp\\carstore\\carstore\\payment.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\payment.cs",
               "RelativeDocumentMoniker": "carstore\\payment.cs",
-              "ToolTip": "E:\\tutorial\\c sharp\\carstore\\carstore\\payment.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\payment.cs",
               "RelativeToolTip": "carstore\\payment.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAmwA0AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAADgvxoAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T16:08:00.758Z",
+              "WhenOpened": "2025-06-01T20:15:01.696Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "E:\\tutorial\\c sharp\\carstore\\carstore\\Form1.cs",
-              "RelativeDocumentMoniker": "carstore\\Form1.cs",
-              "ToolTip": "E:\\tutorial\\c sharp\\carstore\\carstore\\Form1.cs*",
-              "RelativeToolTip": "carstore\\Form1.cs*",
-              "ViewState": "AgIAAKoAAAAAZmZmZmYkwLsAAAA5AAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "payment.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\payment.cs",
+              "RelativeDocumentMoniker": "carstore\\payment.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\payment.cs [Design]",
+              "RelativeToolTip": "carstore\\payment.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T19:41:01.139Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T20:14:32.878Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "about.cs",
-              "DocumentMoniker": "E:\\tutorial\\c sharp\\carstore\\carstore\\about.cs",
-              "RelativeDocumentMoniker": "carstore\\about.cs",
-              "ToolTip": "E:\\tutorial\\c sharp\\carstore\\carstore\\about.cs",
-              "RelativeToolTip": "carstore\\about.cs",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAswIoAAAA2AAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "setting.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\setting.cs",
+              "RelativeDocumentMoniker": "carstore\\setting.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\setting.cs",
+              "RelativeToolTip": "carstore\\setting.cs",
+              "ViewState": "AgIAANQAAAAAAAAAAAAAAP0AAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T19:22:05.221Z",
+              "WhenOpened": "2025-06-01T20:00:29.451Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "login.cs [Design]",
-              "DocumentMoniker": "E:\\tutorial\\c sharp\\carstore\\carstore\\login.cs",
-              "RelativeDocumentMoniker": "carstore\\login.cs",
-              "ToolTip": "E:\\tutorial\\c sharp\\carstore\\carstore\\login.cs [Design]",
-              "RelativeToolTip": "carstore\\login.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T19:25:41.444Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "setting.cs [Design]",
-              "DocumentMoniker": "E:\\tutorial\\c sharp\\carstore\\carstore\\setting.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\setting.cs",
               "RelativeDocumentMoniker": "carstore\\setting.cs",
-              "ToolTip": "E:\\tutorial\\c sharp\\carstore\\carstore\\setting.cs [Design]",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\setting.cs [Design]",
               "RelativeToolTip": "carstore\\setting.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T12:21:40.556Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-06-01T20:00:27.79Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "setting.cs",
-              "DocumentMoniker": "E:\\tutorial\\c sharp\\carstore\\carstore\\setting.cs",
-              "RelativeDocumentMoniker": "carstore\\setting.cs",
-              "ToolTip": "E:\\tutorial\\c sharp\\carstore\\carstore\\setting.cs",
-              "RelativeToolTip": "carstore\\setting.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAAAG4AAAAqAAAAAAAAAA==",
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\Form1.cs",
+              "RelativeDocumentMoniker": "carstore\\Form1.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\Form1.cs [Design]",
+              "RelativeToolTip": "carstore\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T16:09:36.57Z",
+              "WhenOpened": "2025-06-01T19:01:19.977Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\Form1.cs",
+              "RelativeDocumentMoniker": "carstore\\Form1.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\Form1.cs",
+              "RelativeToolTip": "carstore\\Form1.cs",
+              "ViewState": "AgIAAEAEAAAAAAAAAAAgwEUEAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T19:01:23.064Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "login.cs",
-              "DocumentMoniker": "E:\\tutorial\\c sharp\\carstore\\carstore\\login.cs",
-              "RelativeDocumentMoniker": "carstore\\login.cs",
-              "ToolTip": "E:\\tutorial\\c sharp\\carstore\\carstore\\login.cs",
-              "RelativeToolTip": "carstore\\login.cs",
-              "ViewState": "AgIAAFgAAAAAyMzMzMwMwPAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "DatabaseConnector.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\DatabaseConnector.cs",
+              "RelativeDocumentMoniker": "carstore\\DatabaseConnector.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\DatabaseConnector.cs",
+              "RelativeToolTip": "carstore\\DatabaseConnector.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T19:25:44.749Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-01T19:10:49.727Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "profile.cs [Design]",
-              "DocumentMoniker": "E:\\tutorial\\c sharp\\carstore\\carstore\\profile.cs",
-              "RelativeDocumentMoniker": "carstore\\profile.cs",
-              "ToolTip": "E:\\tutorial\\c sharp\\carstore\\carstore\\profile.cs [Design]",
-              "RelativeToolTip": "carstore\\profile.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T12:25:20.874Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "about.cs [Design]",
-              "DocumentMoniker": "E:\\tutorial\\c sharp\\carstore\\carstore\\about.cs",
-              "RelativeDocumentMoniker": "carstore\\about.cs",
-              "ToolTip": "E:\\tutorial\\c sharp\\carstore\\carstore\\about.cs [Design]",
-              "RelativeToolTip": "carstore\\about.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T19:21:51.377Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "payment.cs [Design]",
-              "DocumentMoniker": "E:\\tutorial\\c sharp\\carstore\\carstore\\payment.cs",
-              "RelativeDocumentMoniker": "carstore\\payment.cs",
-              "ToolTip": "E:\\tutorial\\c sharp\\carstore\\carstore\\payment.cs [Design]",
-              "RelativeToolTip": "carstore\\payment.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T16:05:18.665Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
               "Title": "order.cs",
-              "DocumentMoniker": "E:\\tutorial\\c sharp\\carstore\\carstore\\order.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\order.cs",
               "RelativeDocumentMoniker": "carstore\\order.cs",
-              "ToolTip": "E:\\tutorial\\c sharp\\carstore\\carstore\\order.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\order.cs",
               "RelativeToolTip": "carstore\\order.cs",
-              "ViewState": "AgIAAIkAAAAAAAAAAAAUwJgAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T19:27:44.189Z",
+              "WhenOpened": "2025-06-01T19:05:21.865Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "E:\\tutorial\\c sharp\\carstore\\carstore\\Form1.cs",
-              "RelativeDocumentMoniker": "carstore\\Form1.cs",
-              "ToolTip": "E:\\tutorial\\c sharp\\carstore\\carstore\\Form1.cs [Design]",
-              "RelativeToolTip": "carstore\\Form1.cs [Design]",
+              "DocumentIndex": 11,
+              "Title": "order.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\order.cs",
+              "RelativeDocumentMoniker": "carstore\\order.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\order.cs [Design]",
+              "RelativeToolTip": "carstore\\order.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T19:40:56.966Z"
+              "WhenOpened": "2025-06-01T19:05:19.4Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "order.cs [Design]",
-              "DocumentMoniker": "E:\\tutorial\\c sharp\\carstore\\carstore\\order.cs",
-              "RelativeDocumentMoniker": "carstore\\order.cs",
-              "ToolTip": "E:\\tutorial\\c sharp\\carstore\\carstore\\order.cs [Design]",
-              "RelativeToolTip": "carstore\\order.cs [Design]",
+              "DocumentIndex": 9,
+              "Title": "Cart.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\Cart.cs",
+              "RelativeDocumentMoniker": "carstore\\Cart.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\Cart.cs",
+              "RelativeToolTip": "carstore\\Cart.cs",
+              "ViewState": "AgIAAOQBAAAAAAAAAAAAAOsBAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T19:27:40.298Z"
+              "WhenOpened": "2025-06-01T19:02:20.735Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "profile.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\profile.cs",
+              "RelativeDocumentMoniker": "carstore\\profile.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\profile.cs",
+              "RelativeToolTip": "carstore\\profile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOwAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T19:05:54.093Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "payment.Designer.cs",
-              "DocumentMoniker": "E:\\tutorial\\c sharp\\carstore\\carstore\\payment.Designer.cs",
-              "RelativeDocumentMoniker": "carstore\\payment.Designer.cs",
-              "ToolTip": "E:\\tutorial\\c sharp\\carstore\\carstore\\payment.Designer.cs",
-              "RelativeToolTip": "carstore\\payment.Designer.cs",
-              "ViewState": "AgIAALsAAAAAAAAAAAAswMMAAAAAAAAAAAAAAA==",
+              "Title": "profile.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\profile.cs",
+              "RelativeDocumentMoniker": "carstore\\profile.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\profile.cs [Design]",
+              "RelativeToolTip": "carstore\\profile.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T16:37:29.264Z"
+              "WhenOpened": "2025-06-01T19:05:52.731Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AdminPage.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\AdminPage.Designer.cs",
+              "RelativeDocumentMoniker": "carstore\\AdminPage.Designer.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\carstore1\\carstore\\AdminPage.Designer.cs",
+              "RelativeToolTip": "carstore\\AdminPage.Designer.cs",
+              "ViewState": "AgIAACEAAAAAmpmZmZkFwC0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T19:01:50.166Z"
             }
           ]
         }

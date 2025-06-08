@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace carstore
 {
@@ -530,13 +530,13 @@ namespace carstore
 
         private void LoadCars()
         {
-            using (SqlConnection conn = DatabaseConnection.GetConnection())
+            using (MySqlConnection conn = DatabaseConnection.GetConnection())
             {
                 try
                 {
                     conn.Open();
                     string query = "SELECT CarID, Brand, Model, Year, Price, Description, ImagePath FROM Cars";
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn))
                     {
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
@@ -610,14 +610,14 @@ namespace carstore
                 return;
             }
 
-            using (SqlConnection conn = DatabaseConnection.GetConnection())
+            using (MySqlConnection conn = DatabaseConnection.GetConnection())
             {
                 try
                 {
                     conn.Open();
                     string query = @"INSERT INTO Cars (Brand, Model, Year, Price, Description, ImagePath, IsAvailable)
                                    VALUES (@Brand, @Model, @Year, @Price, @Description, @ImagePath, 1)";
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@Brand", brand);
                         cmd.Parameters.AddWithValue("@Model", model);
@@ -725,14 +725,14 @@ namespace carstore
                     return;
                 }
 
-                using (SqlConnection conn = DatabaseConnection.GetConnection())
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
                 {
                     try
                     {
                         conn.Open();
                         string query = @"UPDATE Cars SET Brand=@Brand, Model=@Model, Year=@Year, Price=@Price, 
                                          Description=@Description, ImagePath=@ImagePath WHERE CarID=@CarID";
-                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        using (MySqlCommand cmd = new MySqlCommand(query, conn))
                         {
                             cmd.Parameters.AddWithValue("@Brand", brand);
                             cmd.Parameters.AddWithValue("@Model", model);
@@ -775,13 +775,13 @@ namespace carstore
 
                 if (result == DialogResult.Yes)
                 {
-                    using (SqlConnection conn = DatabaseConnection.GetConnection())
+                    using (MySqlConnection conn = DatabaseConnection.GetConnection())
                     {
                         try
                         {
                             conn.Open();
                             string query = "DELETE FROM Cars WHERE CarID=@CarID";
-                            using (SqlCommand cmd = new SqlCommand(query, conn))
+                            using (MySqlCommand cmd = new MySqlCommand(query, conn))
                             {
                                 cmd.Parameters.AddWithValue("@CarID", carId);
                                 cmd.ExecuteNonQuery();
@@ -805,7 +805,7 @@ namespace carstore
 
         private void LoadOrders()
         {
-            using (SqlConnection conn = DatabaseConnection.GetConnection())
+            using (MySqlConnection conn = DatabaseConnection.GetConnection())
             {
                 try
                 {
@@ -820,7 +820,7 @@ namespace carstore
                                     FROM Orders o
                                     JOIN Users u ON o.UserID = u.UserID
                                     JOIN Cars c ON o.CarID = c.CarID";
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn))
                     {
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
@@ -870,7 +870,7 @@ namespace carstore
             DateTime orderDate = dtpOrderDate.Value;
             string status = cmbOrderStatus.SelectedItem?.ToString() ?? "Pending";
 
-            using (SqlConnection conn = DatabaseConnection.GetConnection())
+            using (MySqlConnection conn = DatabaseConnection.GetConnection())
             {
                 try
                 {
@@ -879,7 +879,7 @@ namespace carstore
                                     OrderDate=@OrderDate, 
                                     Status=@Status 
                                     WHERE OrderID=@OrderID";
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@OrderDate", orderDate);
                         cmd.Parameters.AddWithValue("@Status", status);
@@ -910,13 +910,13 @@ namespace carstore
             {
                 int orderId = Convert.ToInt32(txtOrderId.Text);
 
-                using (SqlConnection conn = DatabaseConnection.GetConnection())
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
                 {
                     try
                     {
                         conn.Open();
                         string query = "UPDATE Orders SET Status='Cancelled' WHERE OrderID=@OrderID";
-                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        using (MySqlCommand cmd = new MySqlCommand(query, conn))
                         {
                             cmd.Parameters.AddWithValue("@OrderID", orderId);
                             cmd.ExecuteNonQuery();

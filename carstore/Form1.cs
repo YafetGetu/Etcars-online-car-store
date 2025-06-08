@@ -96,9 +96,9 @@ namespace carstore
             panel2.Size = new Size(400, this.ClientSize.Height - 120);
             panel2.Location = new Point(this.ClientSize.Width - panel2.Width - 20, 60);
 
-            // Adjust panel10 (car info) position
+           
             int spaceBetweenPanels = this.ClientSize.Width - panel1.Width - panel2.Width;
-            // panel10.Size = new Size(412, 282); // Let SetupCarInfoPanel handle size if needed
+            
             panel10.Location = new Point(panel1.Width + (spaceBetweenPanels - panel10.Width) / 2, 12); // Keep Y position near top
 
             // Adjust pictureBox1 (main car image) position and size
@@ -120,13 +120,17 @@ namespace carstore
             pictureBox1.Top = (availableHeight - pictureBox1.Height) / 2 + offsetY; // Adjusted vertical position
 
 
-            // Adjust panel11 (Next arrow) and panel12 (Previous arrow) positions relative to the *new* pictureBox1 position and size
-            panel11.Size = new Size(135, 125); // Keep original arrow panel size
-            panel12.Size = new Size(131, 125); // Keep original arrow panel size
+            // Adjust panel11 (Next arrow) - Move LEFT (reduce X position)
+            panel11.Location = new Point(
+                pictureBox1.Right - 50,  // Reduced from +10 to -50 (moves left)
+                pictureBox1.Top + (pictureBox1.Height - panel11.Height) / 2 - 300  // Keeps Y position higher
+            );
 
-            panel11.Location = new Point(pictureBox1.Right + 10, pictureBox1.Top + (pictureBox1.Height - panel11.Height) / 2);
-            panel12.Location = new Point(pictureBox1.Left - panel12.Width - 10, pictureBox1.Top + (pictureBox1.Height - panel12.Height) / 2);
-
+            // Adjust panel12 (Previous arrow) - Move RIGHT (increase X position)
+            panel12.Location = new Point(
+                pictureBox1.Left - panel12.Width + 50,  // Increased from -10 to +40 (moves right)
+                pictureBox1.Top + (pictureBox1.Height - panel12.Height) / 2 - 300  // Keeps Y position higher
+            );
 
             // Adjust panel13 (Add to Cart button) position relative to pictureBox1's new position
             panel13.Size = new Size(302, 60); // Keep original button panel size
@@ -182,16 +186,6 @@ namespace carstore
             int buttonSpacing = 10;
 
 
-            // Create Buy button (Now this button doesn't do anything directly,
-            // the purchase flow is Add to Cart -> Cart -> Payment)
-            // I'll keep it for now, but you might want to repurpose or remove it.
-            //Button btnBuy = CreateMenuButton("btnBuy", "  Buy (Not Active)", @"asset\icon\buy.png", new Point(0, buttonYPos));
-            //btnBuy.MouseEnter += (s, args) => { btnBuy.BackColor = Color.FromArgb(255, 10, 30, 32); };
-            //btnBuy.MouseLeave += (s, args) => { btnBuy.BackColor = Color.Transparent; };
-            //// btnBuy.Click += (s, args) => { /* This button's logic is now in the Cart form */ };
-            //panel1.Controls.Add(btnBuy);
-            //buttonYPos += buttonHeight + buttonSpacing;
-
 
             // Create Order button (Now this button shows past orders)
             Button btnOrder = CreateMenuButton("btnOrder", "  Orders", @"asset\icon\order.png", new Point(0, buttonYPos));
@@ -245,16 +239,11 @@ namespace carstore
 
 
             // Create Login/Signup (Account) button
-            int bottomOffset = 250; // Adjust this offset to position the button from the bottom
-                                    // Ensure there's enough space, if not, dynamically calculate position
-                                    // Calculate the ideal position from the bottom
+            int bottomOffset = 360; // Increased more to move the button higher
             int idealBottomY = panel1.Height - bottomOffset;
-            // Ensure the button doesn't overlap with the previous button
             int calculatedY = Math.Max(buttonYPos, idealBottomY);
 
-
             btnLoginSignup = CreateMenuButton("btnLoginSignup", "  Login/Signup", @"asset\icon\login.png", new Point(0, calculatedY));
-
 
             btnLoginSignup.MouseEnter += (s, args) => { btnLoginSignup.BackColor = Color.FromArgb(255, 30, 50, 70); };
             btnLoginSignup.MouseLeave += (s, args) => { btnLoginSignup.BackColor = Color.Transparent; };
@@ -265,36 +254,27 @@ namespace carstore
                     login loginForm = new login(); // Assuming 'login' form exists
                     if (loginForm.ShowDialog() == DialogResult.OK)
                     {
-                        // User successfully logged in
-                        // Use the LoggedInUsername property from the login form
-                        // You need a way for the login form to expose the logged-in username or User object
-                        if (!string.IsNullOrEmpty(loginForm.LoggedInUsername)) // Assuming loginForm has a public property or method for this
+                        if (!string.IsNullOrEmpty(loginForm.LoggedInUsername))
                         {
-                            currentUser = DatabaseConnection.GetUserData(loginForm.LoggedInUsername); // Assuming GetUserData exists
+                            currentUser = DatabaseConnection.GetUserData(loginForm.LoggedInUsername);
                             UpdateLoginButton();
-                            // Optionally show a welcome message after successful login
+
                             if (currentUser != null)
                             {
                                 MessageBox.Show($"Welcome, {currentUser.fullName}!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
-                        else
-                        {
-                            // Handle case where login form closed but didn't provide username (e.g., cancelled)
-                        }
                     }
                 }
                 else
                 {
-                    // If user is logged in, open the profile page
-                    profile profileForm = new profile(currentUser); // Assuming 'profile' form exists and takes User
+                    profile profileForm = new profile(currentUser); // Assuming profile form takes a user
                     profileForm.ShowDialog();
-                    // After the profile form is closed, refresh user data in case it was updated
+
                     if (currentUser != null)
                     {
-                        // Re-fetch user data in case profile form made changes
-                        currentUser = DatabaseConnection.GetUserData(currentUser.fullName); // Assuming GetUserData exists
-                        UpdateLoginButton(); // Update button text/icon if needed
+                        currentUser = DatabaseConnection.GetUserData(currentUser.fullName);
+                        UpdateLoginButton();
                     }
                 }
             };
@@ -303,19 +283,17 @@ namespace carstore
             // Update buttonYPos for buttons below Login/Signup (if any)
             buttonYPos = btnLoginSignup.Bottom + buttonSpacing;
 
-
             // Create About button
             Button btnAbout = CreateMenuButton("btnAbout", "  About", @"asset\icon\about.png", new Point(0, buttonYPos));
             btnAbout.MouseEnter += (s, args) => { btnAbout.BackColor = Color.FromArgb(255, 60, 30, 60); };
             btnAbout.MouseLeave += (s, args) => { btnAbout.BackColor = Color.Transparent; };
             btnAbout.Click += (s, args) =>
             {
-                about aboutForm = new about(); // Assuming you renamed the class to 'About'
+                about aboutForm = new about();
                 aboutForm.ShowDialog();
             };
             panel1.Controls.Add(btnAbout);
             buttonYPos += buttonHeight + buttonSpacing;
-
 
             // Create Settings button
             Button btnSettings = CreateMenuButton("btnSettings", "  Settings", @"asset\icon\setting.png", new Point(0, buttonYPos));
@@ -328,12 +306,21 @@ namespace carstore
                     MessageBox.Show("Please login to access settings.", "Login Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-                setting settingsForm = new setting(); // Assuming 'setting' form exists
-                settingsForm.ShowDialog();
+                setting settingsForm = new setting(currentUser, cartItems);
+                DialogResult settingsResult = settingsForm.ShowDialog();
+
+                if (settingsResult == DialogResult.OK)
+                {
+                    currentUser = null;
+                    cartItems.Clear();
+                    UpdateLoginButton();
+                    MessageBox.Show("You have been logged out.", "Logged Out", MessageBoxButtons.OK, MessageBoxIcon.Information); // Show the logout message in Form1
+
+
+                }
             };
             panel1.Controls.Add(btnSettings);
             buttonYPos += buttonHeight + buttonSpacing;
-
 
             // Create Contact Us button
             Button btnContact = CreateMenuButton("btnContact", "  Contact Us", @"asset\icon\contact.png", new Point(0, buttonYPos));
@@ -344,6 +331,7 @@ namespace carstore
                 MessageBox.Show("Please contact us at support@carstore.com", "Contact");
             };
             panel1.Controls.Add(btnContact);
+
 
             // Ensure the login/account button state is updated on initial load
             UpdateLoginButton();
@@ -587,33 +575,7 @@ namespace carstore
         }
 
 
-        // Keep the AdjustBrightness helper method
-        private Image AdjustBrightness(Image image, float brightness)
-        {
-            // Add null check for input image
-            if (image == null) return null;
-
-            Bitmap bmp = new Bitmap(image.Width, image.Height);
-            using (Graphics g = Graphics.FromImage(bmp))
-            {
-                float[][] matrix = {
-                    new float[] {brightness, 0, 0, 0, 0},
-                    new float[] {0, brightness, 0, 0, 0},
-                    new float[] {0, 0, brightness, 0, 0},
-                    new float[] {0, 0, 0, 1, 0},
-                    new float[] {0, 0, 0, 0, 1}
-                };
-
-                ImageAttributes attributes = new ImageAttributes();
-                attributes.SetColorMatrix(new ColorMatrix(matrix));
-
-                g.DrawImage(image,
-                    new Rectangle(0, 0, image.Width, image.Height),
-                    0, 0, image.Width, image.Height,
-                    GraphicsUnit.Pixel, attributes);
-            }
-            return bmp;
-        }
+        
 
         // This method creates and displays the list of car thumbnails/names on the right panel (panel2)
         private void LoadAndDisplayCarListPanels()
@@ -784,9 +746,7 @@ namespace carstore
                 panel2.Controls.Add(noCarsLabel);
                 panel2.AutoScroll = false; // Disable scrolling
             }
-            // After adding all car items, adjust panel2's size if needed and refresh
-            // panel2.Invalidate();
-            // panel2.Refresh();
+            
         }
 
 
@@ -871,7 +831,7 @@ namespace carstore
                     picNext.Name = "nextIcon"; // Give it a name
                                                // Use a larger size for the icon that fits the panel better
                     picNext.Size = new Size(panel11.Width - 10, panel11.Height - 10); // Adjust size to fit panel with padding
-                    picNext.Location = new Point(5, 5); // Add some padding
+                    picNext.Location = new Point(5, 5); 
 
                     using (Image original = Image.FromFile(nextImagePath))
                     {
@@ -899,13 +859,6 @@ namespace carstore
                         }
                     };
 
-                    // Hover effects (optional, re-add if desired)
-                    // Assuming you have a logic for hover effects that creates different images
-                    // Re-implementing simple hover effect for demonstration
-                    // picNext.MouseEnter += (s, args) => { /* Apply hover effect */ }; // Add hover effect logic here
-                    // picNext.MouseLeave += (s, args) => { /* Remove hover effect */ }; // Add mouse leave logic here
-
-
                     panel11.Controls.Add(picNext);
                 }
                 catch (Exception ex)
@@ -914,10 +867,11 @@ namespace carstore
                     // Handle error
                 }
             }
+
             else
             {
                 Debug.WriteLine("Next arrow image not found: " + nextImagePath);
-                // Handle missing image
+                
             }
 
             // Setup Previous arrow (panel12)
@@ -961,9 +915,7 @@ namespace carstore
                         }
                     };
 
-                    // Hover effects (optional, re-add if desired)
-                    // picPrev.MouseEnter += (s, args) => { /* Apply hover effect */ }; // Add hover effect logic here
-                    // picPrev.MouseLeave += (s, args) => { /* Remove hover effect */ }; // Add mouse leave logic here
+                    
 
                     panel12.Controls.Add(picPrev);
                 }

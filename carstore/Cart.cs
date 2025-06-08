@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using carstore; // Ensure this namespace is included
-
+using MySql.Data.MySqlClient;
 namespace carstore
 {
     // *** ADDED: Define the CartItem class here if it's not in a separate file ***

@@ -24,10 +24,7 @@ namespace carstore
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            // If panel1 is a container panel and you set its background color here,
-            // ensure the color is applied. However, setting colors in InitializeComponents
-            // or the constructor is generally preferred.
-            // panel1.BackColor = Color.FromArgb(0, 40, 85);
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
