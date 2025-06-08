@@ -45,14 +45,8 @@ The **ET Car Store Desktop App** is a simple and user-friendly C# Windows Forms 
   - 🛠️ Edit car details such as model, price, and information  
   - ➕ Add new cars to the store  
   - 📋 Manage customer orders and update order status
-  - 
+    
 ![image alt](https://github.com/YafetGetu/carstore/blob/7dee4a22309d2ae7bd895f9aed94b347b424632a/screenshoot/admin1.png)
-
-- 🛒 **Make an Order** – Customers can select a car and place an order directly through the app.
-
-- 📋 **Order Management** – The app stores customer orders for review and processing.
-
-- 🎨 **Modern UI** – Clean and professional interface with intuitive navigation.
 
 
 ## 📁 Project Structure (Example)
@@ -68,6 +62,10 @@ The **ET Car Store Desktop App** is a simple and user-friendly C# Windows Forms 
 - ├── Program.cs
 - └── README.md
 
+## 🛠 Cart and Order page
+![image alt](https://github.com/YafetGetu/carstore/blob/7dee4a22309d2ae7bd895f9aed94b347b424632a/screenshoot/cart.png)
+
+![image alt](https://github.com/YafetGetu/carstore/blob/7dee4a22309d2ae7bd895f9aed94b347b424632a/screenshoot/order.png)
 ## 📌 Notes
 
 - This app is for demo or small business purposes.
