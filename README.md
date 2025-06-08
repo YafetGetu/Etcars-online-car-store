@@ -1,4 +1,4 @@
-# 🚗 ET_Car Store Desktop App
+# 🚗 ET_Cars Online Car Store Desktop App(C#)
 
 The **ET Car Store Desktop App** is a simple and user-friendly C# Windows Forms application designed to sell cars and manage customer orders.
 
