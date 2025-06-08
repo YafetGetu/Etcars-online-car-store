@@ -69,7 +69,7 @@ The **ET Car Store Desktop App** is a simple and user-friendly C# Windows Forms 
 ## 📌 Notes
 
 - This app is for demo or small business purposes.
-- Don't get confused — the price of the car is currently in :ethiopia: Ethiopian Birr.
+##  Don't get confused — the price of the car is currently in 🇪🇹 Ethiopian Birr.
 - Data is stored in MySql database   you will find it here carstore/bin/Debug/net8.0-windows/db
 
 ## 🧑‍💻 Author
