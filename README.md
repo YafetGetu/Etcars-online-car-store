@@ -22,7 +22,9 @@ The **Car Store Desktop App** is a simple and user-friendly C# Windows Forms app
 3. Build the solution.
 4. Run the application (press F5 or click **Start**).
 
-## 📸 Screenshots
+## 🔐 Front page
+
+![image alt](https://github.com/YafetGetu/carstore/blob/7dee4a22309d2ae7bd895f9aed94b347b424632a/screenshoot/front.png)
 
 ## 📁 Project Structure (Example)
 
