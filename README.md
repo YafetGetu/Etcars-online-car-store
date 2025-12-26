@@ -1,40 +1,40 @@
-# 🚗 ET_Cars Online Car Store Desktop App(C#)
+#  ET_Cars Online Car Store Desktop App(C#)
 
 The **ET Car Store Desktop App** is a simple and user-friendly C# Windows Forms application designed to sell cars and manage customer orders.
 
 ## 🛠 Features
 
-- 🏷️ View Cars for Sale – Browse a list of available cars with details like model, price, and image.
-- 🛒 Make an Order – Customers can select a car and place an order directly through the app.
-- 📋 Order Management – The app stores customer orders for review and processing.
-- 🎨 Modern UI – Clean and professional interface with intuitive navigation.
+-  View Cars for Sale – Browse a list of available cars with details like model, price, and image.
+-  Make an Order – Customers can select a car and place an order directly through the app.
+-  Order Management – The app stores customer orders for review and processing.
+-  Modern UI – Clean and professional interface with intuitive navigation.
 
-## 💻 Technologies Used
+##  Technologies Used
 
 - C# (.NET Framework)
 - Windows Forms
 - Visual Studio
 
-## 🔐 Login / Register page
+##  Login / Register page
 
 ![image alt](https://github.com/YafetGetu/carstore/blob/7dee4a22309d2ae7bd895f9aed94b347b424632a/screenshoot/register.png)
 
-## 📦 How to Run
+##  How to Run
 
 1. Clone or download the project.
 2. Open the solution (.sln) file in Visual Studio.
 3. Build the solution.
 4. Run the application (press F5 or click **Start**).
 
-## 🔐 Front page
+##  Front page
 
 ![image alt](https://github.com/YafetGetu/carstore/blob/7dee4a22309d2ae7bd895f9aed94b347b424632a/screenshoot/front.png)
 
 ## 🛠 Admin page
 
-- 🏷️ **View Cars for Sale** – Browse a list of available cars with details like model, price, and image.
+-  **View Cars for Sale** – Browse a list of available cars with details like model, price, and image.
 
-- 🔐 **Admin Access** –  
+- **Admin Access** –  
   You can log in to the **Admin Panel** using:  
   - **Username:** `admin`  
   - **Password:** `admin@123`
@@ -42,9 +42,9 @@ The **ET Car Store Desktop App** is a simple and user-friendly C# Windows Forms 
 ![image alt](https://github.com/YafetGetu/carstore/blob/7dee4a22309d2ae7bd895f9aed94b347b424632a/screenshoot/admin.png)
 
   Once logged in, the admin can:
-  - 🛠️ Edit car details such as model, price, and information  
-  - ➕ Add new cars to the store  
-  - 📋 Manage customer orders and update order status
+  -  Edit car details such as model, price, and information  
+  -  Add new cars to the store  
+  -  Manage customer orders and update order status
     
 ![image alt](https://github.com/YafetGetu/carstore/blob/7dee4a22309d2ae7bd895f9aed94b347b424632a/screenshoot/admin1.png)
 
@@ -67,19 +67,17 @@ The **ET Car Store Desktop App** is a simple and user-friendly C# Windows Forms 
 
 ![image alt](https://github.com/YafetGetu/carstore/blob/7dee4a22309d2ae7bd895f9aed94b347b424632a/screenshoot/order.png)
 
-## 📌 Notes
+## Notes
 
-🚗 **Purpose**  
+ **Purpose**  
 - Designed for **demo or small business** use.  
 
-💰 **Pricing**  
+ **Pricing**  
 - All prices are in ** Ethiopian Birr (ETB)**.  
 
-🗃️ **Database**  
+ **Database**  
 - Data is stored in **MySQL**.  
 - Database location: `carstore/bin/Debug/net8.0-windows/db/carstoreDB.sql`.  
 
-## 🧑‍💻 Author
 
-Built with ❤️ using C# and Windows Forms.
 
