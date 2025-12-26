@@ -371,8 +371,7 @@ namespace carstore
                                              .OrderByDescending(c => c.Bottom)
                                              .FirstOrDefault();
 
-            // Calculate the y-position below the last dynamic control, or below the title if no dynamic controls
-            // Use the bottom of the title label as a fallback if no dynamic controls are found
+
             Control[] foundTitle = mainPanel.Controls.Find("lblTitle", false);
             int titleBottom = (foundTitle.Length > 0 && foundTitle[0] is Label lblTitle) ? lblTitle.Bottom : mainPanel.Padding.Top;
 
@@ -499,11 +498,7 @@ namespace carstore
                             }
                             else
                             {
-                                // If you want to mark the car as unavailable (set IsAvailable = 0) in the database,
-                                // you would do it here. However, based on your previous request to REMOVE the MarkCarAsUnavailable call,
-                                // I will not add it here. If you want to mark as unavailable for EACH ordered quantity,
-                                // you would need logic to prevent marking it unavailable more than once per car.
-                                // DatabaseConnection.MarkCarAsUnavailable(cartItem.Car.CarID); // Add this back if you want cars marked unavailable on purchase
+                            
                             }
                         }
                     }
@@ -524,11 +519,7 @@ namespace carstore
                         MessageBox.Show("Payment was successful, but there was an error creating some order records.\nThe remaining items are still in your cart. Please contact support.",
                             "Order Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                        // The cartItems list in Form1 will NOT be cleared because DialogResult is not OK.
-                        // The current cartItems list in THIS Cart form instance reflects the items that were attempted to be ordered.
-                        // If you wanted to remove successfully ordered items from THIS list on partial failure,
-                        // you would need to track them during the loop. For now, I'm assuming if allOrdersCreated is false,
-                        // the user needs to see the full list they attempted to order.
+
 
                         // Do NOT set DialogResult to OK, keep the cart open
                         this.DialogResult = DialogResult.None; // Explicitly set to None
@@ -552,8 +543,7 @@ namespace carstore
         // Optional: Add a handler for when the form is resized to reposition controls
         private void Cart_Resize(object sender, EventArgs e)
         {
-            // Re-display items to adjust their width and reposition total/button
-            // Ensure DisplayCartItems handles control widths based on parent ClientSize
+
             AdjustTotalAndButtonPosition(); // Only need to adjust positioning on resize if items' width is fixed
                                             // If item width is dynamic based on mainPanel.ClientSize, call RefreshCartDisplay
             RefreshCartDisplay(); // Call RefreshCartDisplay to redraw items with new width and adjust layout
@@ -567,9 +557,5 @@ namespace carstore
             AdjustTotalAndButtonPosition();
         }
 
-
-        // If you are using a designer, the Dispose method will be in Cart.Designer.cs.
-        // If not using a designer, you might need a Dispose method here to clean up resources.
-        // protected override void Dispose(bool disposing) { ... }
     }
 }
