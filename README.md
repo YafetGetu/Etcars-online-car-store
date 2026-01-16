@@ -17,7 +17,7 @@ The **ET Car Store Desktop App** is a simple and user-friendly C# Windows Forms 
 
 ##  Login / Register page
 
-![image alt](https://github.com/YafetGetu/carstore/blob/7dee4a22309d2ae7bd895f9aed94b347b424632a/screenshoot/register.png)
+<img src="screenshoot/register.png" alt="Register Page Screenshot" style="width:100%; max-width:900px; display:block; margin:auto;">
 
 ##  How to Run
 
