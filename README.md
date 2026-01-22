@@ -73,7 +73,7 @@ The **ET Car Store Desktop App** is a simple and user-friendly C# Windows Forms 
 - Designed for **demo or small business** use.  
 
  **Pricing**  
-- All prices are in ** Ethiopian Birr (ETB)**.  
+- All prices are in  Ethiopian Birr (ETB).  
 
  **Database**  
 - Data is stored in **MySQL**.  
